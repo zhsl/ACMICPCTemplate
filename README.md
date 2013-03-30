@@ -1,0 +1,4 @@
+ACMICPCTemplate
+===============
+
+好玩
