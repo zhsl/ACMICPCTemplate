@@ -19,7 +19,7 @@ struct Matrix{
     }
 }ans,mta;
 
-void pow(LL k)
+void mutilpow(LL k)
 {
     int i,j;
     mem(ans.ma,0);
