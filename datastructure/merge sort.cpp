@@ -1,4 +1,5 @@
-/*  merge sort   */
+/*  merge sort   
+   求逆序对数量 */
 
 int num[N],temp[N];
 int n;
