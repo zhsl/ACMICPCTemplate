@@ -1,5 +1,4 @@
-/*  ������������
-   ansΪ����  */
+/*  merge sort   */
 
 int num[N],temp[N];
 int n;
