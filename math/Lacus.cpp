@@ -1,9 +1,9 @@
-/* Lacus¶¨ÀíÇó C(n£¬m)%p
+/* Lacuså®šç†æ±‚ C(nï¼Œm)%p
  Lucas(n,m,p)=C(n%p,m%p)* Lucas(n/p,m/p,p)
  Lucas(n,0,p)=1;      */
 
 #define LL __int64
-LL fac[MAX];   //MAX<=p,pÎªÈ¡Ä£Êı
+LL fac[MAX];   //MAX<=p,pä¸ºå–æ¨¡æ•°
 
 void init(LL p)
 {
