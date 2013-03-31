@@ -1,14 +1,14 @@
-/*  ÇóÄæÐò¶ÔÊýÁ¿
-   ansÎª½á¹û  */
+/*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+   ansÎªï¿½ï¿½ï¿½ï¿½  */
 
 int num[N],temp[N];
 int n;
-LL ans;
 
-void sort(int l,int r)
+LL sort(int l,int r)
 {
-    if(l==r)return;
+    if(l==r)return 0;
     int i,j,k,mid=(l+r)>>1;
+    LL ans;
     sort(l,mid);
     sort(mid+1,r); 
     for(i=k=l,j=mid+1;i<=mid && j<=r;){
@@ -26,4 +26,5 @@ void sort(int l,int r)
         temp[k++]=num[j++];
     for(i=l;i<=r;i++)
         num[i]=temp[i];
+    return ans;
 }
