@@ -118,7 +118,7 @@ LL slove()
     for(i=0;i<n;i++){
         for(j=0;j<m;j++){
             if(g[i][j])unblock(i,j,p);
-            else block(j,p);
+            else block(j,p);  //p=!p优化
             hs[p=!p].init();
         }
         shift(p);   //换行移位
