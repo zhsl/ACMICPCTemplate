@@ -1,4 +1,14 @@
- 
+/*  number theory basic
+   gcd
+   external gcd
+   inverse
+   Chinese Remainder Theorem
+   eulerphi
+    eulerphi table        */
+
+LL a[N],m[N],phi[N];
+int n;
+
 LL gcd(LL a,LL b){return b?gcd(b,a%b):a;}
 
 void exgcd(LL a,LL b,LL &d,LL &x,LL &y)
