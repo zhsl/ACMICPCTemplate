@@ -4,7 +4,7 @@
    inverse
    Chinese Remainder Theorem
    eulerphi
-    eulerphi table        */
+   eulerphi table        */
 
 LL a[N],m[N],phi[N];
 int n;
