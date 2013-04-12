@@ -43,6 +43,7 @@ LL Modline(int n)
     LL d,x,y,A,M,Mod;
     A=a[n-1],M=m[n-1];
     n--;
+    // m1*x-m2*y=a2-a1
     while(n--){
         exgcd(M,m[n],d,x,y);
         if((A-a[n])%d!=0){
