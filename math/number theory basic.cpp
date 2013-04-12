@@ -3,6 +3,7 @@
    external gcd
    inverse
    Chinese Remainder Theorem
+   Modline
    eulerphi
    eulerphi table        */
 
@@ -35,6 +36,24 @@ LL china()
         x=(x+y*a[i])%M;
     }
     return (x+M)%M;
+}
+
+LL Modline(int n)
+{
+    LL d,x,y,A,M,Mod;
+    A=a[n-1],M=m[n-1];
+    n--;
+    while(n--){
+        exgcd(M,m[n],d,x,y);
+        if((A-a[n])%d!=0){
+            return -1;
+        }
+        Mod=m[n]/d;
+        x=(x*((a[n]-A)/d)%Mod+Mod)%Mod;
+        A+=M*x;
+        M=M/d*m[n];
+    }
+    return A;
 }
 
 LL eulerphi(LL n)
