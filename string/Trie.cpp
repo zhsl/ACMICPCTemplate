@@ -36,4 +36,10 @@ struct Trie {
             if(p->ch[i])return 1;   //存在prefix
         return 2; //存在
     }
+    void free(Node *p){   //释放内存
+        int i;
+        for(i=0;i<10;i++)
+            if(p->ch[i])free(p->ch[i]);
+        delete p;
+    }
 }trie;
