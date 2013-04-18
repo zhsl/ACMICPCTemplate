@@ -1,7 +1,7 @@
 /*   suffix array
    倍增算法   O(n*lgn)   
-   build_sa( ,n+1, )   注意n+1
-   getHeight( , n)
+   build_sa(num,n+1,m)   注意n+1
+   getHeight(num,n)
 
  n        =  8 ；
  num[]    = { 1, 1, 2, 1, 1, 1, 1, 2, $ }.   注意num数组最后一位值为0，其它位须大于0!
@@ -9,7 +9,7 @@
  sa[]     = { 8, 3, 4, 5, 0, 6, 1, 7, 2 }.   (sa[1~n]为有效值)
  height[] = { 0, 0, 3, 2, 3, 1, 2, 0, 1 }.   (height[2~n]为有效值)    */
 
-
+int num[N];
 int sa[N],t1[N],t2[N],c[N],rank[N],height[N];
 int n,m;
 
