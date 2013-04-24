@@ -2,7 +2,7 @@
    倍增算法   O(n*lgn)   
    build_sa(num,n+1,m)   注意n+1
    getHeight(num,n)
-   rmq_init()  初始化rmq
+   rmq_init(height)  初始化rmq，传递height数组
    rmq(a+1,b)   求排名分别为为a和b的最长公共前缀
    lcp(a,b)  求后缀a和后缀b的最长公共前缀
 
