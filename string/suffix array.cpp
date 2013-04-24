@@ -79,6 +79,5 @@ int lcp(int a,int b)
     if(a==b)return n-a;      //a和b为同一后缀，直接输出，字串串长度为n
     int ra=rank[a],rb=rank[b];
     if(ra>rb)swap(ra,rb);
-    ra++;
-    return rmq(ra,rb);
+    return rmq(ra+1,rb);
 }
