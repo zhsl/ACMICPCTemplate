@@ -2,6 +2,9 @@
    倍增算法   O(n*lgn)   
    build_sa(num,n+1,m)   注意n+1
    getHeight(num,n)
+   rmq_init()  初始化rmq
+   rmq(a+1,b)   求排名分别为为a和b的最长公共前缀
+   lcp(a,b)  求后缀a和后缀b的最长公共前缀
 
  n        =  8 ；
  num[]    = { 1, 1, 2, 1, 1, 1, 1, 2, $ }.   注意num数组最后一位值为0，其它位须大于0!
@@ -51,4 +54,31 @@ void getHeight(int s[],int n)
         while(s[i+k]==s[j+k])k++;
         height[rank[i]]=k;
     }
+}
+
+void rmq_init(int a[])
+{
+    int i,j;
+    for(i=1;i<=n;i++)d[i][0]=a[i];
+    for(j=1;(1<<j)<=n;j++){
+        for(i=1;i+(1<<j)-1<=n;i++){
+            d[i][j]=Min(d[i][j-1],d[i+(1<<(j-1))][j-1]);
+        }
+    }
+}
+
+int rmq(int l,int r)
+{
+    int k=0;
+    while((1<<(k+1))<=r-l+1)k++;
+    return Min(d[l][k],d[r-(1<<k)+1][k]);
+}
+
+int lcp(int a,int b)
+{
+    if(a==b)return n-a;      //a和b为同一后缀，直接输出，字串串长度为n
+    int ra=rank[a],rb=rank[b];
+    if(ra>rb)swap(ra,rb);
+    ra++;
+    return rmq(ra,rb);
 }
