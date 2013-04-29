@@ -1,11 +1,11 @@
 /*    HASH
    数字HASH,开散列,邻接表   */
 
-const int MOD=4001,STA=1000010;
+const int MOD=4001,STA=1000010;  //MOD为表长,STA为表大小
 
-struct Hash{     //Hash表,MOD为表长,STA为表大小
+struct Hash{
     int first[MOD],next[STA],size;
-    LL f[STA],sta[STA];
+    LL f[STA],sta[STA];   //sta[]存放状态,f[]为对应状态的权值
     void init(){
         size=0;
         mem(first,-1);
