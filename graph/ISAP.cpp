@@ -10,7 +10,7 @@ struct Edge{
 int first[N],next[N*N],d[N],cur[N],fa[N],num[N];
 int n,m,s,t,mt;
 
-void adde(int a,int b,int val)
+void adde(int a,int b,int val)  //对于一条边，需建立双向边，一个容量为cap，反向边容量为0!
 {
     e[mt].u=a;e[mt].v=b;
     e[mt].cap=val;
