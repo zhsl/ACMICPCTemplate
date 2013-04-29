@@ -1,0 +1,73 @@
+/*  ISAP-最大流    O(V2E)
+   n为图点的个数
+   mt为边的条数，初始化0   */
+   
+
+
+struct Edge{
+    int u,v,cap;
+}e[N*N];
+
+int first[N],next[N*N],d[N],cur[N],fa[N],num[N];
+int n,m,s,t,mt;
+
+void adde(int a,int b,int val)
+{
+    e[mt].u=a;e[mt].v=b;
+    e[mt].cap=val;
+    next[mt]=first[a];first[a]=mt++;
+    e[mt].u=b;e[mt].v=a;
+    e[mt].cap=0;
+    next[mt]=first[b];first[b]=mt++;
+}
+
+int augment()
+{
+    int x=t,a=INF;
+    while(x!=s){
+        a=Min(a,e[fa[x]].cap);
+        x=e[fa[x]].u;
+    }
+    x=t;
+    while(x!=s){
+        e[fa[x]].cap-=a;
+        e[fa[x]^1].cap+=a;
+        x=e[fa[x]].u;
+    }
+    return a;
+}
+
+int isap()
+{
+    int i,x,ok,min,flow=0;
+    mem(d,0);mem(num,0);
+    num[0]=n;
+    for(i=0;i<=n;i++)cur[i]=first[i];   //注意这里的边界 i<=n
+    x=s;
+    while(d[s]<n){
+        if(x==t){
+            flow+=augment();
+            x=s;
+        }
+        ok=0;
+        for(i=cur[x];i!=-1;i=next[i]){
+            if(e[i].cap && d[x]==d[e[i].v]+1){
+                ok=1;
+                fa[e[i].v]=i;
+                cur[x]=i;
+                x=e[i].v;
+                break;
+            }
+        }
+        if(!ok){
+            min=n-1;
+            for(i=first[x];i!=-1;i=next[i])
+                if(e[i].cap && d[e[i].v]<min)min=d[e[i].v];
+            if(--num[d[x]]==0)break;
+            num[d[x]=min+1]++;
+            cur[x]=first[x];
+            if(x!=s)x=e[fa[x]].u;
+        }
+    }
+    return flow;
+}
