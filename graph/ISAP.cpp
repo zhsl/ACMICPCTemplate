@@ -8,7 +8,7 @@ struct Edge{
 }e[N*N];
 
 int first[N],next[N*N],d[N],cur[N],fa[N],num[N];
-int n,m,s,t,mt;
+int n,m,S,T,mt;   //s,t分别为源点和汇点
 
 void adde(int a,int b,int val)  //对于一条边，需建立双向边，一个容量为cap，反向边容量为0!
 {
@@ -41,13 +41,13 @@ void bfs()     初始化d[]，多次求解规模较小的网络流是，效率�
 
 int augment()
 {
-    int x=t,a=INF;
-    while(x!=s){
+    int x=T,a=INF;
+    while(x!=S){
         a=Min(a,e[fa[x]].cap);
         x=e[fa[x]].u;
     }
-    x=t;
-    while(x!=s){
+    x=T;
+    while(x!=S){
         e[fa[x]].cap-=a;
         e[fa[x]^1].cap+=a;
         x=e[fa[x]].u;
