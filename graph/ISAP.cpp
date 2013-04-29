@@ -62,11 +62,11 @@ int isap()
     mem(num,0);
     num[0]=n;
     for(i=0;i<=n;i++)cur[i]=first[i];   //注意这里的边界 i<=n
-    x=s;
-    while(d[s]<n){
-        if(x==t){
+    x=S;
+    while(d[S]<n){
+        if(x==T){
             flow+=augment();
-            x=s;
+            x=S;
         }
         ok=0;
         for(i=cur[x];i!=-1;i=next[i]){
@@ -85,7 +85,7 @@ int isap()
             if(--num[d[x]]==0)break;
             num[d[x]=min+1]++;
             cur[x]=first[x];
-            if(x!=s)x=e[fa[x]].u;
+            if(x!=S)x=e[fa[x]].u;
         }
     }
     return flow;
