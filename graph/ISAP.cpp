@@ -1,4 +1,4 @@
-/*  ISAP-最大流    O(V2E)
+/*  ISAP-当前弧优化+距离标号    O(V2E)
    n为图点的个数
    mt为边的条数，初始化0   */
    
@@ -19,6 +19,25 @@ void adde(int a,int b,int val)
     e[mt].cap=0;
     next[mt]=first[b];first[b]=mt++;
 }
+/*
+void bfs()     初始化d[]，多次求解规模较小的网络流是，效率会有明显提升，注意注销掉isap()中的mem(d,0);!
+{
+    int x,i,j;
+    queue<int> q;
+    mem(d,-1);
+    q.push(t);
+    d[t]=0;
+    while(!q.empty()){
+        x=q.front();q.pop();
+        for(i=first[x];i!=-1;i=next[i]){
+            if(d[e[i].v]<0){
+                d[e[i].v]=d[x]+1;
+                q.push(e[i].v);
+            }
+        }
+    }
+}
+*/
 
 int augment()
 {
@@ -39,7 +58,8 @@ int augment()
 int isap()
 {
     int i,x,ok,min,flow=0;
-    mem(d,0);mem(num,0);
+    mem(d,0);
+    mem(num,0);
     num[0]=n;
     for(i=0;i<=n;i++)cur[i]=first[i];   //注意这里的边界 i<=n
     x=s;
