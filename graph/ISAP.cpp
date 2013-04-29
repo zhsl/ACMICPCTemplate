@@ -3,7 +3,6 @@
    mt为边的条数，初始化0   */
    
 
-
 struct Edge{
     int u,v,cap;
 }e[N*N];
