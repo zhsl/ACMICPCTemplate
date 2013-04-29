@@ -10,12 +10,12 @@ struct Hash{
         size=0;
         mem(first,-1);
     }
-    void add(LL st,LL ans){
+    void add(LL st,LL ans){   
         int i,u=st%MOD;
         for(i=first[u];i!=-1;i=next[i]){
             if(sta[i]==st){
-                f[i]+=ans;
-                return;
+                f[i]+=ans;   //这里注意啦
+                return;   //如果须find()功能,添加返回值
             }
         }
         sta[size]=st;
