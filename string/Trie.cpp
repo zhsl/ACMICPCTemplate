@@ -56,7 +56,7 @@ struct Trie {
             }
             p=p->ch[id];
         }
-        p->val++;
+        p->val=v;
     }
     int find(char *s){    //查找
         int i,len=strlen(s),id;
