@@ -7,7 +7,7 @@ struct Trie {
     int sz;
 
     void init(){sz=1;mem(ch[0],0);}
-    int idx(char c){return c-'a';}
+    inline int idx(char c){return c-'a';}
     void insert(char *s,int v){      //插入
         int i,len=strlen(s),id,u=0;
         for(i=0;i<len;i++){
@@ -44,7 +44,7 @@ struct Trie {
     Node *head;
 
     void init(){head=new Node;}
-    int idx(char c){return c-'a';}
+    inline int idx(char c){return c-'a';}
     void insert(char *s,int v){   //插入
         int i,len=strlen(s),id;
         Node *p=head,*q;
