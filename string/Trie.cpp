@@ -31,7 +31,7 @@ struct Trie {
             if(!ch[u][c])return 0;
             u=ch[u][c];
         }
-        for(i=0;i<26;i++)
+        for(i=0;i<wide;i++)
             if(ch[u][c])return 1;   //存在prefix
         return 2;  //存在
     }
