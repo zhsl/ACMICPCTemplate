@@ -32,7 +32,7 @@ struct Trie {
             u=ch[u][c];
         }
         for(i=0;i<wide;i++)
-            if(ch[u][c])return 1;   //存在prefix
+            if(ch[u][c])return 1;   //s串是模板串中某个串的prefix
         return 2;  //存在
     }
 }trie;
@@ -73,7 +73,7 @@ struct Trie {
             p=p->ch[c];
         }
         for(i=0;i<wide;i++)
-            if(p->ch[i])return 1;   //存在prefix
+            if(p->ch[i])return 1;   //s串是模板串中某个串的prefix
         return 2; //存在
     }
     void free(Node *p){   //释放内存
