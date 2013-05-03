@@ -1,11 +1,12 @@
 /*  Aho Corasick 
    静态建立Trie   */
 
+const int wide=26;  //每个节点的最大子节点数
 
 struct Aho_Corasick{
-    int ch[N][26];
+    int ch[N][wide];
     int val[N],f[N],last[N];
-    int sz,n,m,w;
+    int sz;
 
     void init(){sz=1;mem(ch[0],0);}
     inline int idx(char c){return c-'A';}   //字母映射
@@ -36,13 +37,13 @@ struct Aho_Corasick{
         int u,c,r;
         queue<int> q;
         f[0]=0;
-        for(c=0;c<26;c++){
+        for(c=0;c<wide;c++){
             u=ch[0][c];
             if(u){f[u]=0;last[u]=0;q.push(u);}
         }
         while(!q.empty()){
             r=q.front();q.pop();
-            for(c=0;c<26;c++){
+            for(c=0;c<wide;c++){
                 u=ch[r][c];
                 //改变了ch[r][c],使得空指针为非空,不改变ch[r][c]
                 //if(!u){continue;}
