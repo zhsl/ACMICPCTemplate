@@ -78,7 +78,7 @@ struct Trie {
     }
     void free(Node *p){   //释放内存
         int i;
-        for(i=0;i<26;i++)
+        for(i=0;i<wide;i++)
             if(p->ch[i])free(p->ch[i]);
         delete p;
     }
