@@ -73,4 +73,4 @@ struct Aho_Corasick{
             else if(last[u]){print(last[u]);}
         }
     }
-}
+}ac;
