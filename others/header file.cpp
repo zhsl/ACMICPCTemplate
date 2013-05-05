@@ -5,12 +5,14 @@
 #include<iostream>
 #include<string>
 #include<algorithm>
+#include<ext/rope>
 #include<vector>
 #include<queue>
 #include<stack>
 #include<map>
 #include<set>
 using namespace std;
+using namespace __gnu_cxx;
 //define
 #define pii pair<int,int>
 #define mem(a,b) memset(a,b,sizeof(a))
@@ -18,12 +20,12 @@ using namespace std;
 #define rson mid+1,r,rt<<1|1
 #define PI acos(-1.0)
 //typedef
-typedef long long LL;
-typedef unsigned long long ULL;
+typedef __int64 LL;
+typedef unsigned __int64 ULL;
 //const
-const int N=10010;
+const int N=1010;
 const int INF=0x3f3f3f3f;
-const int MOD=100007,STA=8000010;
+const int MOD=100000,STA=8000010;
 const LL LNF=1LL<<60;
 const double EPS=1e-8;
 const double OO=1e15;
@@ -37,3 +39,12 @@ template<class T> inline T Max(T a,T b,T c){return max(max(a, b),c);}
 template<class T> inline T Min(T a,T b,T c,T d){return min(min(a, b),min(c,d));}
 template<class T> inline T Max(T a,T b,T c,T d){return max(max(a, b),max(c,d));}
 //End
+
+int main()
+{
+ //   freopen("in.txt","r",stdin);
+
+
+    return 0;
+}
+
