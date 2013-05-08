@@ -1,10 +1,53 @@
 /*   Kuhn-Munkers   O(n^3) | O(n^4)
   邻接矩阵实现          */
 
+/*     O(n^3)   最大权匹配   */
+int w[N][N],S[N],T[N],lx[N],ly[N],y[N],vis[N];
+int n,slack;
+
+int match(int u)
+{
+    int v,t;
+    S[u]=1;
+    for(v=1;v<=n;v++){
+        t=w[u][v]-lx[u]-ly[v];
+        if(t)continue;
+        if(!T[v]){
+            T[v]=1;
+            if(!y[v] || match(y[v])){
+                y[v]=u;
+                return 1;
+            }
+        }
+        else if(t<slack)slack=t;
+    }
+    return 0;
+}
+
+void KM()
+{
+    int i,j,a;
+    mem(ly,0);
+    for(i=1;i<=n;i++){
+        lx[i]=w[i][1];
+        for(j=2;j<=n;j++)
+            if(w[i][j]>lx[i])lx[i]=w[i][j];
+    }
+    for(i=1;i<=n;i++){
+        while(1){
+            slack=INF;
+            mem(S,0);mem(T,0);
+            if(match(i))break;
+            for(j=1;j<=n;j++){
+                if(S[j])lx[j]-=slack;
+                if(T[j])ly[j]+=slack;
+            }
+        }
+    }
+}
 
 
-
-/*   O(n^4) 实际效果没这么遭   */
+/*   O(n^4) 最大权匹配  实际效果没这么遭   */
 int w[N][N],lx[N],ly[N],S[N],T[N],y[N];
 int n,m;
 
@@ -23,7 +66,7 @@ int dfs(int u)
     }
     return 0;
 }
-}
+
 void update()
 {
     int i,j,min;
@@ -36,7 +79,7 @@ void update()
         if(T[i])ly[i]+=min;
     }
 }
-}
+
 void KM()
 {
     mem(y,-1);
