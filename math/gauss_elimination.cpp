@@ -26,7 +26,7 @@ void gauss(int n)
 
        // printf("%.30lf\n",A[i][i]);
     }
-    //回带过程
+    //回代过程
     for(i=n-1;i>=0;i--){
         for(j=i+1;j<n;j++)
             A[i][n]-=A[j][n]*A[i][j];
