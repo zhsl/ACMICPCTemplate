@@ -1,7 +1,7 @@
 /*   Kuhn-Munkers   O(n^3) | O(n^4)
    邻接矩阵实现       
    维护可行顶标 l(x)+l(y)>=w(x,y)
-   S[]=T[]=1,是匈牙利数的点集合
+   S[]=T[]=1,是匈牙利树的点集合
    如果求最小权匹配,维护l(x)+l(y)<=w(x,y)即可  */
 
 /*     O(n^3)   最大权匹配   */
@@ -17,7 +17,7 @@ int match(int u)
         if(t)continue;
         if(!T[v]){
             T[v]=1;
-            if(!y[v] || match(y[v])){
+            if(y[v]==-1 || match(y[v])){
                 y[v]=u;
                 return 1;
             }
@@ -58,7 +58,7 @@ int dfs(int u)
 {
     S[u]=1;
     int v;
-    for(v=0;v<n;v++){
+    for(v=1;v<=n;v++){
         if(w[u][v]==lx[u]+ly[v] && !T[v]){
             T[v]=1;
             if(y[v]==-1 || dfs(y[v])){
@@ -74,10 +74,10 @@ void update()
 {
     int i,j,min;
     min=INF;
-    for(i=0;i<n;i++)if(S[i])
-        for(j=0;j<n;j++)if(!T[j])
+    for(i=1;i<=n;i++)if(S[i])
+        for(j=1;j<=n;j++)if(!T[j])
             min=Min(min,w[i][j]-lx[i]-ly[j]);
-    for(i=0;i<n;i++){
+    for(i=1;i<=n;i++){
         if(S[i])lx[i]-=min;
         if(T[i])ly[i]+=min;
     }
@@ -88,12 +88,12 @@ void KM()
     mem(y,-1);
     mem(ly,0);
     int i,j;
-    for(i=0;i<n;i++){
+    for(i=1;i<=n;i++){
         lx[i]=0;
-        for(j=0;j<n;j++)
+        for(j=1;j<=n;j++)
             if(w[i][j]>lx[i])lx[i]=w[i][j];
     }
-    for(i=0;i<n;i++){
+    for(i=1;i<=n;i++){
         while(1){
             mem(S,0);mem(T,0);
             if(dfs(i))break;
