@@ -1,4 +1,4 @@
-/*   gauss_elimination  O(n^2) 
+/*   gauss_elimination  O(n^3) 
    要求系数矩阵可逆
    A[][]是增广矩阵,即A[i][n]是第i个方程右边的常数bi
    运行结束后A[i][n]是第i个未知数的值    */
@@ -23,8 +23,6 @@ void gauss(int n)
             for(k=i+1;k<n;k++)
                 A[k][j]-=A[k][i]/A[i][i]*A[i][j];
         }
-
-       // printf("%.30lf\n",A[i][i]);
     }
     //回代过程
     for(i=n-1;i>=0;i--){
