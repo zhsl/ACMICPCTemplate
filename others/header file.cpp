@@ -30,6 +30,7 @@ const LL LNF=1LL<<60;
 const double EPS=1e-8;
 const double OO=1e15;
 //Daily Use ...
+inline int sign(double x){return (x>EPS)-(x<-EPS);}
 template<class T> T gcd(T a,T b){return b?gcd(b,a%b):a;}
 template<class T> T lcm(T a,T b){return a/gcd(a,b)*b;}
 template<class T> inline T Min(T a,T b){return a<b?a:b;}
