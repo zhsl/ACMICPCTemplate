@@ -11,27 +11,26 @@ int n,m,mt;
 
 int spfa(int s)
 {
-	int i,u,v,t;
-	queue<int> q;
-	mem(d,INF);
-	mem(cnt,0);
-	q.push(s);
-	d[s]=0;cnt[s]=1;
-	while(!q.empty()){
-		u=q.front();q.pop();
-		inq[u]=0;
-		for(i=first[u];i!=-1;i=next[i]){
-			v=e[i].v;t=d[u]+e[i].w;
-			if(t<d[v]){
-				d[v]=t;
-				if(!inq[v]){
-					if(++cnt[v]>=n)return 1;
-					inq[v]=1;
-					q.push(v);
-				}
-			}
-		}
-	}
-	return 0;
+    int i,u,v,t;
+    queue<int> q;
+    mem(d,INF);
+    mem(cnt,0);
+    q.push(s);
+    d[s]=0;cnt[s]=1;
+    while(!q.empty()){
+    	u=q.front();q.pop();
+    	inq[u]=0;
+    	for(i=first[u];i!=-1;i=next[i]){
+    	    v=e[i].v;t=d[u]+e[i].w;
+    	    	if(t<d[v]){
+    	    	    d[v]=t;
+    	    	    if(!inq[v]){
+    	    	    	if(++cnt[v]>=n)return 1;
+    	    	    	inq[v]=1;
+    	    	    	q.push(v);
+    	    	    }
+                }
+	    }
+    }
+    return 0;
 }
-
