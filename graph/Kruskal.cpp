@@ -1,14 +1,14 @@
 /*   Kruskal   O( n*logn )
   求MST和次小生成树
   mst[][]生成树中的边
-  d[][]生成树中两点的路径上的最长边  */
-
+  d[][]生成树中两点的路径上的最长边  
+  m为边条数                       */
 
 struct Edge{
     int u,v,w;
 }e[N*N];
 int p[N],vis[N],mst[N][N],d[N][N],w[N][N];
-int n,m,mt;
+int n,m;
 
 int cmp(const Edge& a,const Edge& b)
 {
