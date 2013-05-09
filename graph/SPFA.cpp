@@ -34,3 +34,4 @@ int spfa(int s)
 	}
 	return 0;
 }
+
