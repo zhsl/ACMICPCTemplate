@@ -22,7 +22,7 @@ int Mincost()
     p[s]=-1;
     while(1){
         a=INF;
-        mem(d,0x3f);
+        mem(d,INF);
         mem(inq,0);
         d[s]=0;
         q.push(s);
