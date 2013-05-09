@@ -3,7 +3,7 @@
    如果存在负权环返回1,否则返回0    */
 
 struct Edge{
-  int u,v,w;
+	int u,v,w;
 }e[N*N];
 
 int first[N],next[N*N],inq[N],d[N],cnt[N];
