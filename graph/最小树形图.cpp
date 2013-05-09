@@ -1,5 +1,7 @@
 /*   最小树形-朱刘算法  O( VE )  
-   mt为边数                */
+   mt为边数                
+   题目:POJ3146 
+   http://www.cnblogs.com/zhsl/archive/2013/02/01/2888834.html  */
 
 
 struct Edge{
