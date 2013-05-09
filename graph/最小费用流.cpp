@@ -3,9 +3,9 @@
 
 struct Edge{
     int u,v,cap,w;
-}e[MAX*40];
+}e[N*N];
 
-int d[MAX],first[MAX],next[MAX*40],inq[MAX],p[MAX];
+int d[N],first[N],next[N*N],inq[N],p[N];
 int n,m,s,t,mt;
 
 void adde(int a,int b,int c,int val){
