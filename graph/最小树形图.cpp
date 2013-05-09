@@ -37,7 +37,7 @@ int zhu_liu(int root)
         for(cou=0,i=1;i<=n;i++)
             if(pre[i]==-1 && i!=root)cou++;
             else ans+=minw[i];
-        if(cou)return -1;
+        if(cou)return -1;    //不存在最小树形图
         //cheack the circle
         mem(vis,0);
         mem(id,0);
