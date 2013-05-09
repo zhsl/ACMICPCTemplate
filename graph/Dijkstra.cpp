@@ -1,6 +1,6 @@
-/* Dijkstra O(E * log E)
-  p[]记录路径
-  不能处理有负权图     */
+/* Dijkstra O(E * log V)
+  p[]锟斤拷录路锟斤拷
+  锟斤拷锟杰达拷锟斤拷锟叫革拷权图     */
 
 struct Edge{
     int u,v,w;
