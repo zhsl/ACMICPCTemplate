@@ -1,6 +1,7 @@
 /*  Manacher 求最长回文串 O(n)
   getstr预处理: abc -> $#a#b#c#
-  len=strlen(s) , n=2*len+2  */
+  len=strlen(s) , n=2*len+2   
+  p[i]为str[]第i个字符为中心的回文串长度+1 */
 
 char str[N<<1],s[N];
 int p[N<<1];
