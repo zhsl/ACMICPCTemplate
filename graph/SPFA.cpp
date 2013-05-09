@@ -4,7 +4,7 @@
 
 
 struct Edge{
-    int u,v,w;
+	int u,v,w;
 }e[N*N];
 
 int first[N],next[N*N],inq[N],d[N],cnt[N];
