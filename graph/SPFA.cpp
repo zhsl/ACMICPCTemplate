@@ -25,7 +25,7 @@ int spfa(int s)
     	    	if(t<d[v]){
     	    	    d[v]=t;
     	    	    if(!inq[v]){
-    	    	    	if(++cnt[v]>=n)return 1;
+    	    	    	if(++cnt[v]>=n)return 1;   //存在负权环
     	    	    	inq[v]=1;
     	    	    	q.push(v);
     	    	    }
