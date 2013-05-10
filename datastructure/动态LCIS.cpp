@@ -11,7 +11,6 @@ struct Node{
 int num[N];
 int n,m,a,b,ans,anst;
 
-
 void pushup(int rt,int lnum,int rnum,int lenl,int lenr)
 {
     ret[rt].max=max(ret[rt<<1].max,ret[rt<<1|1].max);
