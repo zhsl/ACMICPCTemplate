@@ -2,7 +2,7 @@
    线段树维护
    update()修改数列中位置为a的数为b
    query()访问[a,b]区间的LCIS
-   ans为询问后答案,每次询问前要初始话ans=anst=0   */
+   ans为询问后答案,anst为query()时,临时记录的最长长度,每次询问前要初始话ans=anst=0   */
 
 
 struct Node{
