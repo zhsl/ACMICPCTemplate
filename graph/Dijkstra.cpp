@@ -21,7 +21,7 @@ int dijkstra(int s)   //s is start
     int i,u,cou=0;
     pii t;
     priority_queue<pii,vector<pii>,greater<pii> > q;
-    mem(d,0x3f);d[s]=0;
+    mem(d,INF);d[s]=0;
     q.push(make_pair(d[s],s));
     while(!q.empty()){
         t=q.top();q.pop();
