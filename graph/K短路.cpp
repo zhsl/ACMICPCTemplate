@@ -66,7 +66,7 @@ int astar(int s,int t,int k,vector<Edge>& edge){
         nod=q.top();q.pop();
         if(nod.u==t)cou[nod.u]++;
         if(cou[nod.u]==k)return nod.d;
-        for(i=0;i<G1[nod.u].size();i++){
+        for(i=0;i<G1[nod.u].size();i++){  //从当前点到所有邻接点
             Edge& e=edge[G1[nod.u][i]];
             q.push((Node){nod.d-d[nod.u]+d[e.to]+e.dis,e.to});
         }
