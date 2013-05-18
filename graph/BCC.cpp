@@ -1,8 +1,12 @@
 /*   BCC  O(E)
   tarjan算法
+ -Node-Biconnected Component
+ -Edge-Biconnected Component   */
+  
+  
+/* Node-Biconnected Component
   iscut[]为割点集
-  bcc[]为双连通点集   */
-
+  bcc[]为双连通点集        */
 struct Edge{
     int u,v;
 }e[N*N];
@@ -57,6 +61,62 @@ void find_bcc()
     int i,j;
     bcnt=dfs_clock=0;mem(pre,0);
     mem(bccno,0);mem(iscut,0);
+    for(i=1;i<=n;i++){
+        if(!pre[i])dfs(i,-1);
+    }
+}
+
+
+/* Node-Biconnected Component
+  iscut[]为割边集
+  bcc[]为双连通点集,保存为编号        */
+struct Edge{
+    int u,v;
+}e[N*N];
+bool iscut[N];
+int first[N],next[N*N],pre[N],low[N],bccno[N];
+int n,m,mt,bcnt,dfs_clock;
+stack<int> s;
+
+void adde(int a,int b)
+{
+    e[mt].u=a;e[mt].v=b;
+    next[mt]=first[a];first[a]=mt++;
+    e[mt].u=b;e[mt].v=a;
+    next[mt]=first[b];first[b]=mt++;
+}
+
+void dfs(int u,int fa)
+{
+    int i,v;
+    pre[u]=low[u]=++dfs_clock;
+    s.push(u);
+    for(i=first[u];i!=-1;i=next[i]){
+        v=e[i].v;
+        if(!pre[v]){
+            dfs(v,u);
+            if(low[v]>low[u])iscut[i]=true;   //存在割边
+            low[u]=Min(low[u],low[v]);
+        }
+        else if(v!=fa && pre[v]<pre[u]){  //反向边更新
+            low[u]=Min(low[u],pre[v]);
+        }
+    }
+    if(low[u]==pre[u]){  //充分必要条件
+        int x=-1;
+        bcnt++;
+        while(x!=u){
+            x=s.top();s.pop();
+            bccno[x]=bcnt;
+        }
+    }
+}
+
+void find_bcc()
+{
+    int i;
+    bcnt=dfs_clock=0;mem(iscut,0);
+    mem(pre,0);mem(bccno,0);
     for(i=1;i<=n;i++){
         if(!pre[i])dfs(i,-1);
     }
