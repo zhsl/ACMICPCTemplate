@@ -1,11 +1,11 @@
 /*  number theory basic
-   gcd
-   external gcd
-   inverse
-   Chinese Remainder Theorem
-   Modline
-   eulerphi
-   eulerphi table        */
+  -gcd
+  -external gcd
+  -inverse
+  -Chinese Remainder Theorem
+  -Modline
+  -eulerphi
+  -eulerphi table        */
 
 LL a[N],m[N],phi[N];
 int n;
