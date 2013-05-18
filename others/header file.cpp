@@ -29,6 +29,9 @@ const int MOD=100000,STA=8000010;
 const LL LNF=1LL<<60;
 const double EPS=1e-8;
 const double OO=1e15;
+const int dx[4]={-1,0,1,0};
+const int dy[4]={0,1,0,-1};
+const int day[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
 //Daily Use ...
 inline int sign(double x){return (x>EPS)-(x<-EPS);}
 template<class T> T gcd(T a,T b){return b?gcd(b,a%b):a;}
