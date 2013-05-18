@@ -1,4 +1,4 @@
-/   Miller Rabin b  */
+/*   Miller Rabin b  */
 
 /* （吉大模板)，poj验证超时，谨慎使用。
    CALL: bool res = miller(n); 
