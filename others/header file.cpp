@@ -5,14 +5,14 @@
 #include<iostream>
 #include<string>
 #include<algorithm>
-#include<ext/rope>
+//#include<ext/rope>
 #include<vector>
 #include<queue>
 #include<stack>
 #include<map>
 #include<set>
 using namespace std;
-using namespace __gnu_cxx;
+//using namespace __gnu_cxx;
 //define
 #define pii pair<int,int>
 #define mem(a,b) memset(a,b,sizeof(a))
