@@ -95,8 +95,8 @@ void dfs(int u,int fa)
         v=e[i].v;
         if(!pre[v]){
             dfs(v,u);
-            if(low[v]>low[u])iscut[i]=true;   //存在割边
             low[u]=Min(low[u],low[v]);
+            if(low[v]>pre[u])iscut[i]=true;   //存在割边
         }
         else if(v!=fa && pre[v]<pre[u]){  //反向边更新
             low[u]=Min(low[u],pre[v]);
