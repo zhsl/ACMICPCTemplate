@@ -1,16 +1,24 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<math.h>
-#include<iostream>
-#include<string>
-#include<algorithm>
-//#include<ext/rope>
-#include<vector>
-#include<queue>
-#include<stack>
-#include<map>
-#include<set>
+#include <functional>
+#include <algorithm>
+#include <iostream>
+//#include <ext/rope>
+#include <fstream>
+#include <sstream>
+#include <iomanip>
+#include <numeric>
+#include <cstring>
+#include <cassert>
+#include <cstdio>
+#include <string>
+#include <vector>
+#include <bitset>
+#include <queue>
+#include <stack>
+#include <cmath>
+#include <ctime>
+#include <list>
+#include <set>
+#include <map>
 using namespace std;
 //using namespace __gnu_cxx;
 //define
@@ -36,6 +44,7 @@ const int day[13]={0,31,28,31,30,31,30,31,31,30,31,30,31};
 inline int sign(double x){return (x>EPS)-(x<-EPS);}
 template<class T> T gcd(T a,T b){return b?gcd(b,a%b):a;}
 template<class T> T lcm(T a,T b){return a/gcd(a,b)*b;}
+template<class T> inline T lcm(T a,T b,T d){return a/d*b;}
 template<class T> inline T Min(T a,T b){return a<b?a:b;}
 template<class T> inline T Max(T a,T b){return a>b?a:b;}
 template<class T> inline T Min(T a,T b,T c){return min(min(a, b),c);}
@@ -51,4 +60,3 @@ int main()
 
     return 0;
 }
-
