@@ -67,7 +67,7 @@ void find_bcc()
 }
 
 
-/* Node-Biconnected Component
+/* Edge-Biconnected Component
   iscut[]为割边集
   bcc[]为双连通点集,保存为编号        */
 struct Edge{
