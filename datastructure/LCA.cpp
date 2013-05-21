@@ -1,7 +1,7 @@
 /*   LCA    */
 
 
-/*    DFS+ST    O( n )
+/*    DFS+ST    O( n*logn )
   DFS处理：
      T=<V,E>，其中V={A,B,C,D,E,F,G},E={AB,AC,BD,BE,EF,EG},且A为树根。
      则图T的DFS结果为：A->B->D->B->E->F->E->G->E->B->A->C->A
