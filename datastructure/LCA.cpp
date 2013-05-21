@@ -10,9 +10,10 @@
   d[]为树遍历节点的深度
   E[]为树遍历的节点的标号
   R[i]表示E数组中第一个值为i的元素下标
+  f[i][j]为深度遍历[i,j]区间的最小深度的深度遍历编号
   如果有n个节点,那么E[]和R[]下标范围为2*n-1
   rmq下标范围为[1,n]
-  注意他们的最近公共祖先为他们本身的情况         */
+  注意他们的最近公共祖先为他们本身的情况!!!         */
 
 
 struct Edge{
@@ -70,7 +71,7 @@ void LCA_Init()
     rmq_init(2*n-1);  //传递E[]和R[]的长度
 }
 
-int LCA(int a,int b)   //返回a和b节点的最近祖先节点标号
+int LCA(int a,int b)   //返回a和b节点的最近祖先节点标号,注意他们的最近公共祖先为他们本身的情况 
 {
     int left=R[a],right=R[b];
     if(left>right)swap(left,right);
