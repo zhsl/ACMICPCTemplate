@@ -3,7 +3,7 @@
   mta为初始矩阵
   ans为结果矩阵  */
 
-int size;
+const int size=10;
 
 struct Matrix{
     LL ma[size][size];
