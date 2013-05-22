@@ -35,7 +35,7 @@ void shift(int p)    //换行移位
     int k;
     LL sta;
     for(k=0;k<hs[!p].size;k++){
-        sta=hs[!p].sta[k]<<3;
+        sta=hs[!p].sta[k]<<3;  //注意修改移位大小
         hs[p].add(sta,hs[!p].f[k]);
     }
 }
@@ -48,7 +48,7 @@ LL getsta()   //最小表示法
     for(i=0;i<=m;i++){
         if(ma[code[i]]==-1)ma[code[i]]=cnt++;
         code[i]=ma[code[i]];
-        sta|=(LL)code[i]<<(3*i);
+        sta|=(LL)code[i]<<(3*i);   //注意修改移位大小
     }
     return sta;
 }
@@ -58,7 +58,7 @@ void getcode(LL sta)
     int i;
     for(i=0;i<=m;i++){
         code[i]=sta&7;
-        sta>>=3;
+        sta>>=3;    //注意修改移位大小
     }
 }
 
