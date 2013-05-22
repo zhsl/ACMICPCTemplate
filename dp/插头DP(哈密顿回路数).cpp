@@ -1,5 +1,6 @@
 /*  插头DP 最小表示法 求哈密顿回路数
    g[][]为图
+   code[]为最小表示法
    如果TLE，可调节Hash表大小    */
 
 const int N=15,INF=0x3f3f3f3f,MOD=4001,STA=1000010;
