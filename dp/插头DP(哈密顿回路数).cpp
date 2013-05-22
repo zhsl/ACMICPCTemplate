@@ -81,7 +81,6 @@ void unblock(int i,int j,int p)
                 hs[p].add(getsta(),cnt);
             }
         }
-
         else if(x&&!y || !x&&y){   //延续连通分量
             t=x?x:y;
             if(g[i+1][j]){
