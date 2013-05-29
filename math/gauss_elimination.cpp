@@ -39,10 +39,10 @@ void gauss(int n)
    高斯-约当消元
    A[][]增光矩阵
    B[][]结果矩阵
-   vis[]在有多解的情况下,判断元素解是否唯一
+   is_free[]在有多解的情况下,判断元素解是否唯一
 */
 
-int A[N][N],B[N],vis[N],num[N];
+int A[N][N],B[N],is_free[N],num[N];
 
 void getA(int n)
 {
@@ -51,7 +51,7 @@ void getA(int n)
 
 int gauss(int n)
 {
-    int i,j,k,cnt,row,ok,ret,up,free;
+    int i,j,k,cnt,row,ok,ret,up,cnt_free;
     for(i=row=0;i<n;i++){
         if(!A[row][i]){
             for(j=row+1;j<n;j++){
@@ -76,19 +76,19 @@ int gauss(int n)
         for(i=ret=0;i<n;i++)if(A[i][n])ret++;
         return ret;
     }
-    mem(vis,0);
+    mem(is_free,0);
     for(i=k=j=0;i<n;i++,j++){
         while(!A[i][j] && j<n){
-            vis[j]=1;   //判断元素是否解唯一
+            is_free[j]=1;   //判断元素是否解唯一
             num[k++]=j++;
         }
     }
-    ret=INF;free=n-row;   //自由变元个数
-    up=1<<free;
+    ret=INF;cnt_free=n-row;   //自由变元个数
+    up=1<<cnt_free;
     for(k=0;k<up;k++){    //枚举最小的变换个数
-        for(i=0;i<free;i++)B[num[i]]=(k&(1<<i))?1:0;
+        for(i=0;i<cnt_free;i++)B[num[i]]=(k&(1<<i))?1:0;
         for(i=n-1;i>=0;i--){
-            if(vis[i])continue;
+            if(is_free[i])continue;
             B[i]=0;
             for(j=row;j<n;j++)B[i]^=B[j]*A[i][j];
             B[i]^=A[i][n];
