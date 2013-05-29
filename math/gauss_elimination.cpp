@@ -1,4 +1,5 @@
-/*   gauss_elimination  O(n^3) 
+/*   gauss_elimination  O(n^3)
+   n个方程n个变元
    要求系数矩阵可逆
    A[][]是增广矩阵,即A[i][n]是第i个方程右边的常数bi
    运行结束后A[i][n]是第i个未知数的值    */
@@ -34,6 +35,7 @@ void gauss(int n)
 
 
 /*  异或矩阵  O( n^3 )
+   n个方程n个变元
    高斯-约当消元
    A[][]增光矩阵
    B[][]结果矩阵
