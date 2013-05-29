@@ -31,3 +31,68 @@ void gauss(int n)
         A[i][n]/=A[i][i];
     }
 }
+
+
+/*  异或矩阵  O( n^3 )
+   高斯-约当消元
+   A[][]增光矩阵
+   B[][]结果矩阵
+   vis[]在有多解的情况下,判断元素解是否唯一
+*/
+
+int A[N][N],B[N],vis[N],num[N];
+
+void getA(int n)
+{
+    /*  得到增光矩阵A[][]   */
+}
+
+int gauss(int n)
+{
+    int i,j,k,cnt,row,ok,ret,up,free;
+    for(i=row=0;i<n;i++){
+        if(!A[row][i]){
+            for(j=row+1;j<n;j++){
+                if(A[j][i]){
+                    for(k=i;k<=n;k++)swap(A[row][k],A[j][k]);
+                    break;
+                }
+            }
+        }
+        if(A[row][i]!=1)continue;    //保证为严格的阶梯矩阵
+        for(j=0;j<n;j++){    //从0开始,高斯约当消元
+            if(j!=row && A[j][i]){
+                for(k=i;k<=n;k++)
+                    A[j][k]^=A[row][k];
+            }
+        }
+        row++;
+    }
+    for(i=n-1;i>=row;i--)
+        if(A[i][n])return -1;   //无解
+    if(row==n){    //唯一解
+        for(i=ret=0;i<n;i++)if(A[i][n])ret++;
+        return ret;
+    }
+    mem(vis,0);
+    for(i=k=j=0;i<n;i++,j++){
+        while(!A[i][j] && j<n){
+            vis[j]=1;   //判断元素是否解唯一
+            num[k++]=j++;
+        }
+    }
+    ret=INF;free=n-row;   //自由变元个数
+    up=1<<free;
+    for(k=0;k<up;k++){    //枚举最小的变换个数
+        for(i=0;i<free;i++)B[num[i]]=(k&(1<<i))?1:0;
+        for(i=n-1;i>=0;i--){
+            if(vis[i])continue;
+            B[i]=0;
+            for(j=row;j<n;j++)B[i]^=B[j]*A[i][j];
+            B[i]^=A[i][n];
+        }
+        for(i=cnt=0;i<n;i++)if(B[i])cnt++;
+        ret=Min(ret,cnt);
+    }
+    return ret;    //返回最小的变换个数
+}
