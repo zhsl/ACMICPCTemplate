@@ -2,7 +2,7 @@
 
 
 int pre[N],key[N],ch[N][2],root,tot;  //分别表示父结点，键值，左右孩子(0为左孩子，1为右孩子),根结点，结点数量
-int n;  //节点数
+int n;
 //新建一个结点
 void addn(int &r,int fa,int k)
 {
@@ -19,7 +19,7 @@ int Rotate(int x,int kind)
     ch[y][!kind]=ch[x][kind];
     pre[ch[x][kind]]=y;
     //如果父节点不是根结点，则要和父节点的父节点连接起来
-    if(z)ch[z][ch[z][1]==y]=y;
+    if(z)ch[z][ch[z][1]==y]=x;
     pre[x]=z;
     ch[x][kind]=y;
     pre[y]=x;
@@ -64,11 +64,11 @@ int Insert(int k)
         r=ch[r][k>key[r]];
     }
     addn(ch[r][k>key[r]],r,k);
-    //将新插入的结点更新至根结点 
+    //将新插入的结点更新至根结点
     Splay(ch[r][k>key[r]],0);
     return 1;
 }
-//找前驱，即左子树的最右结点 
+//找前驱，即左子树的最右结点
 int getpre(int x)
 {
     if(!ch[x][0])return -INF;
