@@ -13,7 +13,7 @@ int match(int u)
     int v,t;
     S[u]=1;
     for(v=1;v<=n;v++){
-        t=lx[u]+ly[v]-w[u][v];
+        t=lx[u]+ly[v]-w[u][v];  //最小:t=w[u][v]-lx[u]-ly[v];
         if(!t){
             if(!T[v]){
                 T[v]=1;
@@ -36,7 +36,7 @@ void KM()
     for(i=1;i<=n;i++){
         lx[i]=w[i][1];
         for(j=2;j<=n;j++)
-            if(w[i][j]>lx[i])lx[i]=w[i][j];
+            if(w[i][j]>lx[i])lx[i]=w[i][j]; //最小:if(w[i][j]<lx[i])lx[i]=w[i][j];
     }
     for(i=1;i<=n;i++){
         while(1){
@@ -44,8 +44,8 @@ void KM()
             mem(S,0);mem(T,0);
             if(match(i))break;
             for(j=1;j<=n;j++){
-                if(S[j])lx[j]-=slack;
-                if(T[j])ly[j]+=slack;
+                if(S[j])lx[j]-=slack;  //最小:if(S[j])lx[j]+=slack;
+                if(T[j])ly[j]+=slack;  //最小:if(T[j])ly[j]+=slack;
             }
         }
     }
