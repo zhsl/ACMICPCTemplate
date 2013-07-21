@@ -45,7 +45,7 @@ void KM()
             if(match(i))break;
             for(j=1;j<=n;j++){
                 if(S[j])lx[j]-=slack;  //最小:if(S[j])lx[j]+=slack;
-                if(T[j])ly[j]+=slack;  //最小:if(T[j])ly[j]+=slack;
+                if(T[j])ly[j]+=slack;  //最小:if(T[j])ly[j]-=slack;
             }
         }
     }
@@ -77,10 +77,10 @@ void update()
     a=INF;
     for(i=1;i<=n;i++)if(S[i])
         for(j=1;j<=n;j++)if(!T[j])
-            a=Min(a,lx[i]+ly[j]-w[i][j]);
+            a=Min(a,lx[i]+ly[j]-w[i][j]);  //最小:a=Min(a,w[i][j]-lx[i]-ly[j]);
     for(i=1;i<=n;i++){
-        if(S[i])lx[i]-=a;
-        if(T[i])ly[i]+=a;
+        if(S[i])lx[i]-=a;   //最小:if(S[j])lx[j]+=a;
+        if(T[i])ly[i]+=a;   //最小:if(T[i])ly[i]-=a;
     }
 }
 
@@ -92,7 +92,7 @@ void KM()
     for(i=1;i<=n;i++){
         lx[i]=w[i][1];
         for(j=2;j<=n;j++)
-            if(w[i][j]>lx[i])lx[i]=w[i][j];
+            if(w[i][j]>lx[i])lx[i]=w[i][j];  //最小:if(w[i][j]<lx[i])lx[i]=w[i][j];
     }
     for(i=1;i<=n;i++){
         while(1){
