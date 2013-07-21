@@ -13,7 +13,7 @@ int match(int u)
     int v,t;
     S[u]=1;
     for(v=1;v<=n;v++){
-        t=w[u][v]-lx[u]-ly[v];
+        t=lx[u]+ly[v]-w[u][v];
         if(t)continue;
         if(!T[v]){
             T[v]=1;
@@ -30,9 +30,10 @@ int match(int u)
 void KM()
 {
     int i,j,a;
+    mem(y,-1);
     mem(ly,0);
     for(i=1;i<=n;i++){
-        lx[i]=w[i][1];
+         lx[i]=w[i][1];
         for(j=2;j<=n;j++)
             if(w[i][j]>lx[i])lx[i]=w[i][j];
     }
