@@ -33,7 +33,7 @@ void KM()
     mem(y,-1);
     mem(ly,0);
     for(i=1;i<=n;i++){
-         lx[i]=w[i][1];
+        lx[i]=w[i][1];
         for(j=2;j<=n;j++)
             if(w[i][j]>lx[i])lx[i]=w[i][j];
     }
