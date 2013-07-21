@@ -90,8 +90,8 @@ void KM()
     mem(ly,0);
     int i,j;
     for(i=1;i<=n;i++){
-        lx[i]=0;
-        for(j=1;j<=n;j++)
+        lx[i]=w[i][1];
+        for(j=2;j<=n;j++)
             if(w[i][j]>lx[i])lx[i]=w[i][j];
     }
     for(i=1;i<=n;i++){
@@ -102,4 +102,5 @@ void KM()
         }
     }
 }
+
 
