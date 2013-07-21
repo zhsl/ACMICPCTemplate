@@ -14,12 +14,13 @@ int match(int u)
     S[u]=1;
     for(v=1;v<=n;v++){
         t=lx[u]+ly[v]-w[u][v];
-        if(t)continue;
-        if(!T[v]){
-            T[v]=1;
-            if(y[v]==-1 || match(y[v])){
-                y[v]=u;
-                return 1;
+        if(!t){
+            if(!T[v]){
+                T[v]=1;
+                if(y[v]==-1 || match(y[v])){
+                    y[v]=u;
+                    return 1;
+                }
             }
         }
         else if(t<slack)slack=t;
@@ -49,7 +50,6 @@ void KM()
         }
     }
 }
-
 
 /*   O(n^4) 最大权匹配  实际效果没这么遭   */
 int w[N][N],lx[N],ly[N],S[N],T[N],y[N];
