@@ -73,14 +73,14 @@ int dfs(int u)
 
 void update()
 {
-    int i,j,min;
-    min=INF;
+    int i,j,a;
+    a=INF;
     for(i=1;i<=n;i++)if(S[i])
         for(j=1;j<=n;j++)if(!T[j])
-            min=Min(min,w[i][j]-lx[i]-ly[j]);
+            a=Min(a,lx[i]+ly[j]-w[i][j]);
     for(i=1;i<=n;i++){
-        if(S[i])lx[i]-=min;
-        if(T[i])ly[i]+=min;
+        if(S[i])lx[i]-=a;
+        if(T[i])ly[i]+=a;
     }
 }
 
@@ -102,3 +102,4 @@ void KM()
         }
     }
 }
+
