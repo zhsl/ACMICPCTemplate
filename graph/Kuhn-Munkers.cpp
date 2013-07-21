@@ -5,7 +5,7 @@
    如果求最小权匹配,维护l(x)+l(y)<=w(x,y)即可  */
 
 /*     O(n^3)   最大权匹配   */
-int w[N][N],S[N],T[N],lx[N],ly[N],y[N],vis[N];
+int w[N][N],S[N],T[N],lx[N],ly[N],y[N];
 int n,slack;
 
 int match(int u)
