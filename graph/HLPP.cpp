@@ -2,6 +2,11 @@
    ZOJ 2364:http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2364
    所有点的标号范围为[0,n-1]!
 
+const int MAXN = 1515;
+const int MAXM = 300300;
+
+inline int RE(int i) { return i ^ 1; }
+
 struct Edge {
   int v;
 	int c;
