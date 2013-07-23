@@ -9,7 +9,7 @@ struct Edge{
 }e[N*N];
 
 int first[N],next[N*N],d[N],cur[N];
-int n,m,s,t,mt;
+int n,m,S,T,mt;
 
 void adde(int a,int b,int val)
 {
@@ -23,29 +23,29 @@ void adde(int a,int b,int val)
 
 int bfs()
 {
-    int x,i,j;
+    int u,i,j;
     queue<int> q;
     mem(d,0);
-    q.push(s);
-    d[s]=1;
+    q.push(S);
+    d[S]=1;
     while(!q.empty()){
-        x=q.front();q.pop();
-        for(i=first[x];i!=-1;i=next[i]){
+        u=q.front();q.pop();
+        for(i=first[u];i!=-1;i=next[i]){
             if(e[i].cap && !d[e[i].v]){
-                d[e[i].v]=d[x]+1;
+                d[e[i].v]=d[u]+1;
                 q.push(e[i].v);
             }
         }
     }
-    return d[t];
+    return d[T];
 }
 
-int dfs(int x,int a)
+int dfs(int u,int a)
 {
-    if(x==t || a==0)return a;
+    if(u==T || a==0)return a;
     int f,flow=0;
-    for(int& i=cur[x];i!=-1;i=next[i]){      //当前弧优化,从上次的弧考虑
-        if(d[x]+1==d[e[i].v] && (f=dfs(e[i].v,Min(a,e[i].cap)))){
+    for(int& i=cur[u];i!=-1;i=next[i]){      //当前弧优化,从上次的弧考虑
+        if( d[u]+1==d[e[i].v] && (f=dfs(e[i].v,Min(a,e[i].cap)) )){
             e[i].cap-=f;
             e[i^1].cap+=f;
             flow+=f;
@@ -60,8 +60,8 @@ int dinic()
 {
     int i,flow=0;
     while(bfs()){
-        for(i=0;i<=t;i++)cur[i]=first[i];
-        flow+=dfs(s,INF);
+        for(i=0;i<=n;i++)cur[i]=first[i];  //注意这里是所有点都要赋值！！！
+        flow+=dfs(S,INF);
     }
     return flow;
 }
