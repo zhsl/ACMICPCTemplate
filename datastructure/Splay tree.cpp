@@ -74,6 +74,7 @@ void Splay(int x,int goal)
     while(pre[x]!=goal){
         //父节点即是目标位置，goal为0表示，父节点就是根结点
         y=pre[x];
+    //    Push_Down(pre[y]);Push_Down(y);Push_Down(x);   //涉及到反转操作，要先更新，然后在判断!!
         if(pre[y]==goal){
             Rotate(x,ch[y][0]==x);
         }
