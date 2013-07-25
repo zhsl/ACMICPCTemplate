@@ -66,14 +66,64 @@ void find_bcc()
     }
 }
 
-
-/* Edge-Biconnected Component
+/* Edge-Biconnected Component(有重边)
   iscut[]为割边集
-  bcc[]为双连通点集,保存为编号        */
+  bccno[]为双连通点集,保存为编号        */
 struct Edge{
     int u,v;
 }e[N*N];
-bool iscut[N];
+bool iscut[N*N];
+int first[N],next[N*N],pre[N],low[N],bccno[N];
+int n,m,mt,bcnt,dfs_clock;
+stack<int> s;
+
+void dfs(int u,int fa)
+{
+    int i,v;
+    pre[u]=low[u]=++dfs_clock;
+    s.push(u);
+    int cnt=0;
+    for(i=first[u];i!=-1;i=next[i]){
+        v=e[i].v;
+        if(!pre[v]){
+            dfs(v,u);
+            low[u]=Min(low[u],low[v]);
+            if(low[v]>pre[u])iscut[i]=true;   //存在割边
+        }
+        else if(fa==v){  //反向边更新
+            if(cnt)low[u]=Min(low[u],pre[v]);
+            cnt++;
+        }
+        else low[u]=Min(low[u],pre[v]);
+    }
+    if(low[u]==pre[u]){  //充分必要条件
+        int x=-1;
+        bcnt++;
+        while(x!=u){
+            x=s.top();s.pop();
+            bccno[x]=bcnt;
+        }
+    }
+}
+
+void find_bcc()
+{
+    int i;
+    bcnt=dfs_clock=0;
+    mem(pre,0);mem(bccno,0);
+    for(i=1;i<=n;i++){
+        if(!pre[i])dfs(i,-1);
+    }
+}
+
+
+/* Edge-Biconnected Component(无重边)
+  iscut[]为割边集
+  bccno[]为双连通点集,保存为编号        */
+struct Edge{
+    int u,v;
+}e[N*N];
+bool iscut[N*N];
 int first[N],next[N*N],pre[N],low[N],bccno[N];
 int n,m,mt,bcnt,dfs_clock;
 stack<int> s;
