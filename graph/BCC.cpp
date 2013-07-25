@@ -66,7 +66,7 @@ void find_bcc()
     }
 }
 
-/* Edge-Biconnected Component(有重边)
+/* Edge-Biconnected Component(可以处理重边)
   iscut[]为割边集
   bccno[]为双连通点集,保存为编号        */
 struct Edge{
@@ -117,7 +117,7 @@ void find_bcc()
 }
 
 
-/* Edge-Biconnected Component(无重边)
+/* Edge-Biconnected Component(不能处理重边)
   iscut[]为割边集
   bccno[]为双连通点集,保存为编号        */
 struct Edge{
