@@ -1,7 +1,9 @@
 /*   BCC  O(E)
   tarjan算法
  -Node-Biconnected Component
- -Edge-Biconnected Component   */
+ -Edge-Biconnected Component(可以处理重边)
+ -Edge-Biconnected Component(不能处理重边)
+ */
   
   
 /* Node-Biconnected Component
