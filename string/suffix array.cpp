@@ -1,6 +1,6 @@
 /*   suffix array
    倍增算法   O(n*lgn)   
-   build_sa(num,n+1,m)   注意n+1
+   build_sa(num,n+1,m)   注意n+1，每个字符的值为0~m-1
    getHeight(num,n)
    rmq_init(height)  初始化rmq，传递height数组
    rmq(a+1,b)   求排名分别为为a和b的最长公共前缀
