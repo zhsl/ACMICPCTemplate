@@ -1,4 +1,4 @@
-/*   HLPP - from satashi    O(n^3)
+/*   HLPP - from watashi    O(n^3)
    ZOJ 2364:http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2364
    所有点的标号范围为[0,n-1]!
 
