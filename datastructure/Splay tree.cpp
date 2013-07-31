@@ -20,10 +20,16 @@ void Treaval(int x) {
 }
 void debug() {printf("%d\n",root);Treaval(root);}
 //以上Debug
+void erase(int r){  /* 内存池，删除的节点入栈  */
+    if(!r) return;
+    st[++top]=r;
+    erase(ch[r][0]);
+    erase(ch[r][1]);
+}
 //新建一个结点
 void NewNode(int &x,int fa,int k)
 {
-    if(top)x=st[--top];
+    if(top)x=st[top++];
     else x=++tot;
     pre[x]=fa;
     sz[x]=1;
@@ -96,7 +102,8 @@ void Splay(int x,int goal)
     Push_Up(x);
     if(goal==0)root=x;
 }
-
+/*把第k个节点旋转到goal节点下面
+注意：是加了两个虚拟节点后，虚拟节点不算，否则需要改为while(sz[ch[x][0]]!=k-1)  */
 void RotateTo(int k,int goal)
 {
     int x=root;
@@ -186,3 +193,13 @@ LL Query(int a,int b)
     RotateTo(b+1,root);
     return sum[Key_value];
 }
+//第k个数的节点编号
+int Get_Kth(int r,int k)
+{
+    Push_Down(r);
+    int t=size[ch[r][0]]+1;
+    if(t==k)return r;
+    if(t>k)return Get_Kth(ch[r][0],k);
+    else return Get_Kth(ch[r][1],k-t);
+}
+
