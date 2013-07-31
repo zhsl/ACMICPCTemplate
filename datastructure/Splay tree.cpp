@@ -1,4 +1,5 @@
-/*  Spaly tree   O(log n)   */
+/*  Spaly tree   O(log n)   
+[NOI2005]维修数列：http://www.cnblogs.com/zhsl/p/3227535.html  */
 
 #define Key_value ch[ch[root][1]][0]
 int pre[N],key[N],ch[N][2];  //分别表示父结点，键值，左右孩子(0为左孩子，1为右孩子),根结点，结点数量
@@ -20,12 +21,6 @@ void Treaval(int x) {
 }
 void debug() {printf("%d\n",root);Treaval(root);}
 //以上Debug
-void erase(int r){  /* 内存池，删除的节点入栈  */
-    if(!r) return;
-    st[++top]=r;
-    erase(ch[r][0]);
-    erase(ch[r][1]);
-}
 //新建一个结点
 void NewNode(int &x,int fa,int k)
 {
@@ -80,7 +75,7 @@ void Splay(int x,int goal)
     while(pre[x]!=goal){
         //父节点即是目标位置，goal为0表示，父节点就是根结点
         y=pre[x];
-    //    Push_Down(pre[y]);Push_Down(y);Push_Down(x);   //涉及到反转操作，要先更新，然后在判断!!
+        Push_Down(pre[y]);Push_Down(y);Push_Down(x);   //涉及到反转操作，要先更新，然后在判断!!
         if(pre[y]==goal){
             Rotate(x,ch[y][0]==x);
         }
@@ -202,4 +197,21 @@ int Get_Kth(int r,int k)
     if(t>k)return Get_Kth(ch[r][0],k);
     else return Get_Kth(ch[r][1],k-t);
 }
-
+//内存池，删除的节点入栈
+void erase(int r){
+    if(!r) return;
+    st[++top]=r;
+    erase(ch[r][0]);
+    erase(ch[r][1]);
+}
+//删除区间[a,b]的数,加了虚拟节点之后
+void Delete(int a,int b)
+{
+    RotateTo(a-1,0);
+    RotateTo(b+1,root);
+    erase(Key_value);
+    pre[Key_value]=0;
+    Key_value=0;
+    Push_Up(ch[root][1]);
+    Push_Up(root);
+}
