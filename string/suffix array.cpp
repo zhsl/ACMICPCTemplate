@@ -12,6 +12,8 @@
  sa[]     = { 8, 3, 4, 5, 0, 6, 1, 7, 2 }.   (sa[1~n]为有效值)
  height[] = { 0, 0, 3, 2, 3, 1, 2, 0, 1 }.   (height[2~n]为有效值)    */
 
+char s[N];
+int d[N][20];
 int num[N];
 int sa[N],t1[N],t2[N],c[N],rank[N],height[N];
 int n,m;
