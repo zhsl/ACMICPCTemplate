@@ -1,4 +1,4 @@
-  String Hash
+/*  String Hash
  -BKDRHash用longlong基本无冲突，概率很小
 
 Hash函数  数据1	数据2	数据3	数据4	数据1得分	数据2得分	数据3得分	数据4得分	平均分
