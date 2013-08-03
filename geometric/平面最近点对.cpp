@@ -35,8 +35,8 @@ pii Closest_Pair(int l,int r)  //返回排序后点的编号
     pii pn1=Closest_Pair(l,mid);
     pii pn2=Closest_Pair(mid+1,r);
     //左右两遍的最小距离
-    d1=(pn1.first==pn1.second?LNF:dist(nod[pn1.first],nod[pn1.second]));
-    d2=(pn2.first==pn2.second?LNF:dist(nod[pn2.first],nod[pn2.second]));
+    d1=(pn1.first==pn1.second?OO:dist(nod[pn1.first],nod[pn1.second]));
+    d2=(pn2.first==pn2.second?OO:dist(nod[pn2.first],nod[pn2.second]));
     pii ret;
     d=Min(d1,d2);
     ret=d1<d2?pn1:pn2;
