@@ -66,3 +66,41 @@ void FFT(complex y[],int len,int on)
         for(int i = 0;i < len;i++)
             y[i].r /= len;
 }
+
+/*  大数乘法
+char s1[N],s2[N];
+int ans[N];
+complex a[N],b[N];
+
+int main(){
+  //  freopen("in.txt","r",stdin);
+    int i,j,len1,len2,len;
+    while(~scanf("%s%s",s1,s2))
+    {
+        len1=strlen(s1);
+        len2=strlen(s2);
+        len=1;
+        while(len<(len1<<1) || len<(len2<<1))len<<=1;
+        for(i=0;i<len1;i++)a[i]=complex(s1[len1-i-1]-'0',0);
+        for(;i<len;i++)a[i]=complex(0,0);
+        for(i=0;i<len2;i++)b[i]=complex(s2[len2-i-1]-'0',0);
+        for(;i<len;i++)b[i]=complex(0,0);
+
+        FFT(a,len,1);
+        FFT(b,len,1);
+        for(i=0;i<len;i++)a[i]=a[i]*b[i];
+        FFT(a,len,-1);
+        for(i=0;i<len;i++)ans[i]=(int)(a[i].r+0.5);
+        len=len1+len2-1;
+        for(i=0;i<len;i++){
+            ans[i+1]+=ans[i]/10;
+            ans[i]%=10;
+        }
+        for(i=len;ans[i]<=0 && i>0;i--);
+        for(;i>=0;i--)
+            printf("%d",ans[i]);
+        putchar('\n');
+    }
+    return 0;
+}
+*/
