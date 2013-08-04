@@ -67,40 +67,51 @@ void FFT(complex y[],int len,int on)
             y[i].r /= len;
 }
 
-/*  大数乘法
-char s1[N],s2[N];
+/*  大数乘法  O(n*logn)  */
+
+char s1[N],s2[N],s[N];
 int ans[N];
 complex a[N],b[N];
 
+void mutil(char *s1,char *s2,char *s)
+{
+    int i,len1,len2,len;
+    len1=strlen(s1);
+    len2=strlen(s2);
+    len=1;
+    while(len<(len1<<1) || len<(len2<<1))len<<=1;  //len必须为2^k形式且大于2*max(len1,len2)
+    for(i=0;i<len1;i++)a[i]=complex(s1[len1-i-1]-'0',0);
+    for(;i<len;i++)a[i]=complex(0,0);
+    for(i=0;i<len2;i++)b[i]=complex(s2[len2-i-1]-'0',0);
+    for(;i<len;i++)b[i]=complex(0,0);
+    //DFT
+    FFT(a,len,1);
+    FFT(b,len,1);
+    for(i=0;i<len;i++)a[i]=a[i]*b[i];
+    //IDFT
+    FFT(a,len,-1);
+    //作乘积
+    for(i=0;i<len;i++)ans[i]=(int)(a[i].r+0.5);
+    //进位转化
+    len=len1+len2-1;
+    for(i=0;i<len;i++){
+        ans[i+1]+=ans[i]/10;
+        ans[i]%=10;
+    }
+    
+    for(i=len;ans[i]<=0 && i>0;i--);
+    len=i;
+    for(;i>=0;i--)s[i]=(ans[len-i]+'0');
+    s[len+1]=0;
+}
+
 int main(){
-  //  freopen("in.txt","r",stdin);
+//    freopen("in.txt","r",stdin);
     int i,j,len1,len2,len;
     while(~scanf("%s%s",s1,s2))
     {
-        len1=strlen(s1);
-        len2=strlen(s2);
-        len=1;
-        while(len<(len1<<1) || len<(len2<<1))len<<=1;
-        for(i=0;i<len1;i++)a[i]=complex(s1[len1-i-1]-'0',0);
-        for(;i<len;i++)a[i]=complex(0,0);
-        for(i=0;i<len2;i++)b[i]=complex(s2[len2-i-1]-'0',0);
-        for(;i<len;i++)b[i]=complex(0,0);
-
-        FFT(a,len,1);
-        FFT(b,len,1);
-        for(i=0;i<len;i++)a[i]=a[i]*b[i];
-        FFT(a,len,-1);
-        for(i=0;i<len;i++)ans[i]=(int)(a[i].r+0.5);
-        len=len1+len2-1;
-        for(i=0;i<len;i++){
-            ans[i+1]+=ans[i]/10;
-            ans[i]%=10;
-        }
-        for(i=len;ans[i]<=0 && i>0;i--);
-        for(;i>=0;i--)
-            printf("%d",ans[i]);
-        putchar('\n');
+        mutil(s1,s2,s);
+        printf("%s\n",s);
     }
     return 0;
 }
-*/
