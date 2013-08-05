@@ -11,9 +11,9 @@ struct Matrix{
         Matrix ret;
         mem(ret.ma,0);
         int i,j,k;
-        for(k=0;k<size;k++)
-            for(i=0;i<size;i++)
-                for(j=0;j<size;j++)
+        for(i=0;i<size;i++)
+            for(j=0;j<size;j++)
+                for(k=0;k<size;k++)
                     ret.ma[i][j]=(ret.ma[i][j]+a.ma[i][k]*b.ma[k][j])%MOD;
         return ret;
     }
