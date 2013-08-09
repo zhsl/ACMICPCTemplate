@@ -42,7 +42,7 @@ int Twosat()
     return 1;
 }
 
-void init(double limt)
+void init()
 {
     int i,j;
     mt=0;mem(vis,0);
