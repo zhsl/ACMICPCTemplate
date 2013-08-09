@@ -1,4 +1,4 @@
-*  KMP  
+/*  KMP  
 
         0 1 2 3 4 5 6 7
  s：    a b a b a b c d
