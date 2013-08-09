@@ -2,12 +2,12 @@
 
 
 /*   dfs  O(VE)   */
-int first[N],next[N*N*2],vis[N],S[N];
-int n,mt,cnt;
-
 struct Edge{
     int u,v;
 }e[N*N*2];
+
+int first[N],next[N*N*2],vis[N],S[N];
+int n,mt,cnt;
 
 void adde(int a,int b)
 {
