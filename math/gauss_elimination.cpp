@@ -1,4 +1,5 @@
 /*   gauss_elimination  O(n^3)
+   return 1,有解，return 0,无解。。
    n个方程n个变元
    要求系数矩阵可逆
    A[][]是增广矩阵,即A[i][n]是第i个方程右边的常数bi
@@ -6,7 +7,7 @@
    
 double A[N][N];
 
-void gauss(int n)
+int gauss(int n)
 {
     int i,j,k,r;
     for(i=0;i<n;i++){
@@ -25,6 +26,8 @@ void gauss(int n)
                 A[k][j]-=A[k][i]/A[i][i]*A[i][j];
         }
     }
+    //判断方程时候有解
+    for(i=0;i<n;i++)if(sign(A[i][i])==0)return 0;
     //回代过程
     for(i=n-1;i>=0;i--){
         for(j=i+1;j<n;j++)
