@@ -1,4 +1,4 @@
-/* Lacus定理求 C(n，m)%p
+/* Lucas定理求 C(n，m)%p
  Lucas(n,m,p)=C(n%p,m%p)* Lucas(n/p,m/p,p)
  Lucas(n,0,p)=1;      */
 
