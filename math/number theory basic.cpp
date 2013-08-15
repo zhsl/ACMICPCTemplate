@@ -25,6 +25,13 @@ LL inv(LL a,LL n)
     return d==1?(x+n)%n:-1;
 }
 
+//求ax = 1( mod m) 的x值，就是逆元(0<a<m)
+LL inv(LL a,LL m)
+{
+    if(a == 1)return 1;
+    return inv(m%a,m)*(m-m/a)%m;
+}
+
 LL china()
 {
     int i;
