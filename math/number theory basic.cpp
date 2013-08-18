@@ -79,6 +79,29 @@ LL eulerphi(LL n)
     return ans;
 }
 
+/*效率是下面那个phitable的3-4倍！
+prime存储素数
+cnt为1-n之间的素数个数   */
+int phi[N],prime[N];
+int cnt;
+void phitable(int n)
+{
+    int i,j;
+    //Init phi[N},prime[N},q全局变量初始为0
+    cnt=0;phi[1]=1;
+    for(i=2;i<=n;i++){
+        if(!phi[i]){
+            prime[cnt++]=i;  //prime[i]=1;为素数表
+            phi[i]=i-1;
+        }
+        for(j=0;j<cnt && i*prime[j]<=n;j++){
+            if(i%prime[j])
+                phi[i*prime[j]]=phi[i]*(prime[j]-1);
+            else {phi[i*prime[j]]=phi[i]*prime[j];break;}
+        }
+    }
+}
+
 int prime[N];
 void phitable(LL n)
 {
