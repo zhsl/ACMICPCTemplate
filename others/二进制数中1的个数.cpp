@@ -2,11 +2,12 @@
  -朴素方法   O(n)
  -快速法     O(k) 1的个数
  -查表法
-   -动态建表
-   -静态表-4bit
-   -静态表-8bit
- -平行算法  O(logn)
- -完美法
+   -动态建表   O(n/8)
+   -静态表-4bit   O(n/4)
+   -静态表-8bit   O(n/8)
+ -平行算法   O(logn)
+ -完美法  O(1)常数有点大
+ -指令法  O(1)
 
 /*   朴素方法   O(n) */
 int BitCount1(unsigned int n)
@@ -123,8 +124,8 @@ int BitCount7(unsigned int n)
 先将n写成二进制形式，然后相邻位相加，重复这个过程，直到只剩下一位。
 以217（11011001）为例，有图有真相，下面的图足以说明一切了。217的二进制表示中有5个1
    1 1 0 1 1 0 0 1
-    2   1   1   1
-      3       2
+    2 + 1   1 + 1
+      3   +   2
           5
 */
 
@@ -164,4 +165,9 @@ int BitCount5(unsigned int n)
     unsigned inttmp = n - ((n >>1) &033333333333) - ((n >>2) &011111111111);
     return ((tmp + (tmp >>3)) &030707070707) %63;
 }
+
+/*    指令法
+使用微软提供的指令，首先要确保你的CPU支持SSE4指令，用Everest和CPU-Z可以查看是否支持。  */
+unsigned int n =127 ;
+unsigned int bitCount = _mm_popcnt_u32(n) ;
 
