@@ -7,7 +7,7 @@
     4.转化结果                       */
 
 
-//定义复试结构体
+//定义复数结构体
 struct complex
 {
     double r,i;
