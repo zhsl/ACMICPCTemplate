@@ -102,8 +102,8 @@ void phitable(int n)
     }
 }
 
-int prime[N];
-void phitable(LL n)
+int phi[N],prime[N];
+void phitable(int n)
 {
     int i,j;
     for(i=0;i<=n;i++)phi[i]=0;
