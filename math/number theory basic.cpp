@@ -79,12 +79,14 @@ LL eulerphi(LL n)
     return ans;
 }
 
+int prime[N];
 void phitable(LL n)
 {
     int i,j;
     for(i=0;i<=n;i++)phi[i]=0;
     phi[1]=1;
     for(i=2;i<=n;i++)if(!phi[i]){
+      //  prime[i]=1;   //筛质数，prime[i]=1为质数
         for(j=i;j<=n;j+=i){
             if(!phi[j])phi[j]=j;
             phi[j]=phi[j]/i*(i-1);
