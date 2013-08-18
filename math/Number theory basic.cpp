@@ -4,6 +4,7 @@
   -inverse
   -Chinese Remainder Theorem
   -Modline
+  -primetable
   -eulerphi
   -eulerphi table        */
 
@@ -64,6 +65,25 @@ LL Modline(int n)
     return A;
 }
 
+/*  primetable  O(n)  
+ isprime[i]=0为素数
+ prime存储素数
+ cnt为素数个数     */
+int isprime[N],prime[N];
+int cnt;
+void primetable(int n)
+{
+    int i,j;
+    cnt=0;isprime[1]=1;
+    for(i=2;i<=n;i++){
+        if(!isprime[i])prime[cnt++]=i;
+        for(j=0;j<cnt && i*prime[j]<=n;j++){
+            isprime[i*prime[j]]=1;
+            if(i%prime[j]==0)break;
+        }
+    }
+}
+
 LL eulerphi(LL n)
 {
     int i,j;
@@ -79,7 +99,8 @@ LL eulerphi(LL n)
     return ans;
 }
 
-/*效率是下面那个phitable的3-4倍！  O(n)
+/*   eulerphi table O(n)算法
+ 效率是下面那个phitable的3-4倍！  O(n)
  主要是递推优化：
     如果i%prime[j]，那么phi[i*prime[j]]=n(p1-1)/p1*...(pn-1)/pn*(prime[j]-1)/prime[j]*prime[j]=phi[i]*(prime[j]-1)
     否则：phi[i*prime[j]]=n(p1-1)/p1*...(pn-1)/pn*prime[j]=phi[i]*(prime[j]-1)
@@ -105,14 +126,15 @@ void phitable(int n)
     }
 }
 
-int phi[N],prime[N];
+/*  eulerphi table  朴素算法O(n*loglogn)
+int phi[N],isprime[N];
 void phitable(int n)
 {
     int i,j;
     for(i=0;i<=n;i++)phi[i]=0;
     phi[1]=1;
     for(i=2;i<=n;i++)if(!phi[i]){
-      //  prime[i]=1;   //筛质数，prime[i]=1为质数
+      //  isprime[i]=1;   //筛质数，isprime[i]=1为质数
         for(j=i;j<=n;j+=i){
             if(!phi[j])phi[j]=j;
             phi[j]=phi[j]/i*(i-1);
