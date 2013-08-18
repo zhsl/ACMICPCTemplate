@@ -80,6 +80,9 @@ LL eulerphi(LL n)
 }
 
 /*效率是下面那个phitable的3-4倍！  O(n)
+ 主要是递推优化：
+    如果i%prime[j]，那么phi[i*prime[j]]=n(p1-1)/p1*...(pn-1)/pn*(prime[j]-1)/prime[j]*prime[j]=phi[i]*(prime[j]-1)
+    否则：phi[i*prime[j]]=n(p1-1)/p1*...(pn-1)/pn*prime[j]=phi[i]*(prime[j]-1)
 prime存储素数
 cnt为1-n之间的素数个数   */
 int phi[N],prime[N];
