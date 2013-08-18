@@ -126,7 +126,7 @@ void phitable(int n)
     }
 }
 
-/*  eulerphi table  朴素算法O(n*loglogn)
+/*  eulerphi table  朴素算法O(n*loglogn)   */
 int phi[N],isprime[N];
 void phitable(int n)
 {
