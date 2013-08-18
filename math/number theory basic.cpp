@@ -79,7 +79,7 @@ LL eulerphi(LL n)
     return ans;
 }
 
-/*效率是下面那个phitable的3-4倍！
+/*效率是下面那个phitable的3-4倍！  O(n)
 prime存储素数
 cnt为1-n之间的素数个数   */
 int phi[N],prime[N];
