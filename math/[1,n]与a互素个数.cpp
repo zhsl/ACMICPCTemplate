@@ -11,7 +11,7 @@ int solve (int n, int a){
         }
     if(a>1)fac[cnt++]=a;
     up=1<<cnt;
-    for(i=1;i<up;i++){
+    for(i=1;i<up;i++){   //容斥原理，二进制枚举
         flag=0,t=1;
         for(j=0;j<cnt;j++){
             if(i&(1<<j)){
