@@ -74,6 +74,7 @@ int cnt;
 void primetable(int n)
 {
     int i,j;
+    //Init isprime[N},prime[N},全局变量初始为0
     cnt=0;isprime[1]=1;
     for(i=2;i<=n;i++){
         if(!isprime[i])prime[cnt++]=i;
@@ -111,7 +112,7 @@ int cnt;
 void phitable(int n)
 {
     int i,j;
-    //Init phi[N},prime[N},q全局变量初始为0
+    //Init phi[N},prime[N},全局变量初始为0
     cnt=0;phi[1]=1;
     for(i=2;i<=n;i++){
         if(!phi[i]){
@@ -131,7 +132,7 @@ int phi[N],isprime[N];
 void phitable(int n)
 {
     int i,j;
-    for(i=0;i<=n;i++)phi[i]=0;
+    //Init phi[N},isprime[N},全局变量初始为0
     phi[1]=1;
     for(i=2;i<=n;i++)if(!phi[i]){
       //  isprime[i]=1;   //筛质数，isprime[i]=1为质数
