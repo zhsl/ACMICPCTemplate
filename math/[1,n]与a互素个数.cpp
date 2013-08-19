@@ -2,6 +2,7 @@
   先对a分解质因数
   然后用容斥原理             */
 
+int fac[50];
 int solve (int n, int a){
     int i,j,up,t,cnt=0,sum=0,flag;
     for(i=2;i*i<=a;i++)
