@@ -11,7 +11,7 @@ struct Edge{
 int vis[N],y[N],first[N],next[N*N];
 int n,mt;
 
-void adde(int a,int b,int val)
+void adde(int a,int b)
 {
     e[mt].u=a;e[mt].v=b;
     next[mt]=first[a];first[a]=mt++;
