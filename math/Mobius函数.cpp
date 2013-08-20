@@ -16,7 +16,7 @@ int cnt;
 void Mobius(int n)
 {
     int i,j;
-    //Init phi[N],prime[N],全局变量初始为0
+    //Init isprime[N],mu[N],prime[N],全局变量初始为0
     cnt=0;mu[1]=1;
     for(i=2;i<=n;i++){
         if(!isprime[i]){
