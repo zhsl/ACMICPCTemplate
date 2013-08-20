@@ -26,8 +26,8 @@ Matrix mutilpow(LL k)
     mem(ret.ma,0);
     for(i=0;i<size;i++)
         ret.ma[i][i]=1;
-    for(;k;k>>=(1LL)){
-        if(k&(1LL))ret=ret*A;
+    for(;k;k>>=1){
+        if(k&1)ret=ret*A;
         A=A*A;
     }
     return ret;
