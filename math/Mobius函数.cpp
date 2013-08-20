@@ -20,7 +20,7 @@ void Mobius(int n)
     cnt=0;mu[1]=1;
     for(i=2;i<=n;i++){
         if(!isprime[i]){
-            prime[cnt++]=i;  //prime[i]=1;为素数表
+            prime[cnt++]=i;
             mu[i]=-1;
         }
         for(j=0;j<cnt && i*prime[j]<=n;j++){
