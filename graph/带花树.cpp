@@ -1,7 +1,8 @@
 /*    带花树    O(n^3)
   Edmonds's matching algorithm  Code by Amber   
   邻接矩阵建图，n为顶点个数，编号为1-n
-  Edmonds()返回最大的匹配点数          */
+  Edmonds()返回最大的匹配点数          
+  如果图要删除节点，直接在3个for循环里添加标记即可   */
   
 int n;
 int head,tail,Start,Finish;
