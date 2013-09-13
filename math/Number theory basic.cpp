@@ -13,6 +13,7 @@ int n;
 
 LL gcd(LL a,LL b){return b?gcd(b,a%b):a;}
 
+//求出来的(x,y),有|x|+|y|最小
 void exgcd(LL a,LL b,LL &d,LL &x,LL &y)
 {
     if(!b){d=a;x=1;y=0;}
