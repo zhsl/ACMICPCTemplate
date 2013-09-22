@@ -91,7 +91,7 @@ LL eulerphi(LL n)
     int i,j;
     LL m,ans=n;
     m=(LL)sqrt(n+0.5);
-    for(i=2;i<m && i<n;i++){
+    for(i=2;i<=m && i<n;i++){
         if(n%i==0){
             ans=ans/i*(i-1);
             while(n%i==0)n/=i;
