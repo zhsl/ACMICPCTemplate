@@ -1,0 +1,95 @@
+\documentclass[12pt,oneside,a4paper]{article}
+\usepackage{CJKutf8}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{type1cm}
+\usepackage{booktabs}
+\usepackage{geometry}
+%\usepackage[landscape]{geometry}
+\geometry{left=3cm,right=1cm,top=1.5cm,bottom=2cm,headsep=0.2cm}
+\usepackage{courier}
+%\usepackage{time}
+%\usepackage{charter}
+\usepackage{fancyhdr}
+
+\usepackage{listings}
+\lstset{%numbers=left, %设置行号位置
+        numberstyle=\tiny, %设置行号大小
+        keywordstyle=\color{blue}, %设置关键字颜色
+        commentstyle=\color[cmyk]{1,0,1,0}, %设置注释颜色
+        %frame=single, %设置边框格式
+        escapeinside=``, %逃逸字符(1左面的键)，用于显示中文
+        breaklines, %自动折行
+        extendedchars=false, %解决代码跨页时，章节标题，页眉等汉字不显示的问题
+        xleftmargin=2em,xrightmargin=2em, aboveskip=1em, %设置边距
+        tabsize=4, %设置tab空格数
+        showspaces=false %不显示空格
+        basicstyle=\ttfamily %等宽字体
+}
+
+\usepackage[dvipdfmx,
+	 	   CJKbookmarks=true,
+	 	   colorlinks,
+	 	   linkcolor=black,
+	 	   anchorcolor=black,
+	 	   citecolor=black]{hyperref}
+\AtBeginDvi{\special{pdf:tounicode UTF8-UCS2}}
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+    \pagestyle{fancy}
+    \lhead{}
+    \chead{}
+    \rhead{\bfseries ACM Template} 
+    \lfoot{} 
+    \cfoot{}
+    \rfoot{\bfseries\thepage} 
+    \renewcommand{\headrulewidth}{0.4pt} 
+    \renewcommand{\footrulewidth}{0.4pt}
+
+%    \newgeometry{left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
+    \begin{titlepage}
+	~
+	\pagestyle{empty}
+
+        \begin{center}
+        ~\\[160pt]
+        
+        \hrule\ \\[8pt]
+        \fontsize{48pt}{\baselineskip}\selectfont  \textsc{ACM Template}\\[8pt]
+        \hrule\ \\[340pt]
+
+        \huge zhsl\\[8pt]
+        \Large Last build at \today
+        \end{center}
+    \end{titlepage}
+
+%   \restoregeometry
+
+    \tableofcontents
+    \clearpage
+
+    \input todolist.tex
+    \clearpage
+    
+    \input math.tex
+    \clearpage
+    
+    \input datastructure.tex
+    \clearpage
+    
+    \input string.tex
+    \clearpage
+    
+    \input graph.tex
+    \clearpage
+    
+    \input geometric.tex
+    \clearpage
+    
+    \input DP.tex
+    \clearpage	
+
+\end{CJK}
+\end{document} 
