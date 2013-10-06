@@ -12,7 +12,7 @@
 struct Edge{
     int u,v;
 }e[N*N];
-bool iscut[N*N];
+bool iscut[N];
 int first[N],next[N*N],low[N],pre[N],bccno[N];
 int n,m,mt,dfs_clock,bcnt;
 vector<int> bcc[N];
