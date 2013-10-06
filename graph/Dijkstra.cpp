@@ -1,5 +1,5 @@
 /* Dijkstra O(E * log V)
-  p[]为路径数组
+  p[]为路径
   不能处理负权图     */
 
 struct Edge{
