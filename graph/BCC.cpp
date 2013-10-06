@@ -8,7 +8,8 @@
   
 /* Node-Biconnected Component
   iscut[]为割点集
-  bcc[]为双连通点集        */
+  bcc[]为双连通点集
+  割顶的bccno[]无意义       */
 struct Edge{
     int u,v;
 }e[N*N];
