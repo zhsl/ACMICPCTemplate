@@ -1,3 +1,5 @@
+\subsection{大数幂取模}
+	\begin{verbatim}
 /*     大数幂取模   O(log n)
   公式：A^x = A^(x % Phi(C) + Phi(C)) (mod C)  &&  x >= Phi(C)   */
 
@@ -183,3 +185,4 @@ int main() {
     }
     return 0;
 }
+	\end{verbatim}
