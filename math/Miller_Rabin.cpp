@@ -3,36 +3,38 @@
 /*   Miller Rabin b  */
 
 /* （吉大模板)，poj验证超时，谨慎使用。
-   CALL: bool res = miller(n); 
-   快速测试n是否满足素数的'必要'条件, 出错概率很小; 
-   对于任意奇数 n>2 和正整数 s, 算法出错概率 <= 2^(-s); 
+   CALL: bool res = miller(n);
+   快速测试n是否满足素数的'必要'条件, 出错概率很小;
+   对于任意奇数 n>2 和正整数 s, 算法出错概率 <= 2^(-s);
    初始化时间种子：srand(time(NULL));      */
 LL witness(LL a, LL n)
 {
-  LL x,d=1,i=ceil(log(n-1.0)/log(2.0))-1;
-	for (;i>=0;i--){
-		x=d;d=(d * d)%n;
-		if (d==1 && x!=1 && x!=n-1) return 1;
-		if (((n-1)&(1<<i))>0)d=(d*a)%n;
-	}
-	return d==1?0:1;
+    LL x,d=1,i=ceil(log(n-1.0)/log(2.0))-1;
+    for (; i>=0; i--)
+    {
+        x=d;
+        d=(d * d)%n;
+        if (d==1 && x!=1 && x!=n-1) return 1;
+        if (((n-1)&(1<<i))>0)d=(d*a)%n;
+    }
+    return d==1?0:1;
 }
 
 LL miller(LL n, LL s=50)
 {
-	if (n==2) return 1;
-	if ((n%2)==0) return 0;
-	int j,a;
-	for (j=0;j<s;j++){
-		a=rand()*(n-2)/RAND_MAX+1;
-		// rand()只能随机产生[0, RAND_MAX)内的整数
-		// 而且这个RAND_MAX只有32768直接%n的话永远也产生不了
-		// [RAND-MAX, n)之间的数
-		if (witness(a, n)) return 0;
-	}
-	return 1;
+    if (n==2) return 1;
+    if ((n%2)==0) return 0;
+    int j,a;
+    for (j=0; j<s; j++)
+    {
+        a=rand()*(n-2)/RAND_MAX+1;
+        // rand()只能随机产生[0, RAND_MAX)内的整数
+        // 而且这个RAND_MAX只有32768直接%n的话永远也产生不了
+        // [RAND-MAX, n)之间的数
+        if (witness(a, n)) return 0;
+    }
+    return 1;
 }
-
 
 /*  网络模板，时间效率不错
   Miller_Rabin 算法进行素数测试
