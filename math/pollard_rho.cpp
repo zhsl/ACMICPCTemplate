@@ -1,3 +1,5 @@
+\subsection{pollard rho质因数分解}
+	\begin{verbatim}
 /*   pollard rho    
   pollard_rho 算法进行质因数分解  */
   
@@ -45,3 +47,4 @@ void findfac(LL n)
     findfac(p);
     findfac(n/p);
 }
+	\end{verbatim}
