@@ -1,4 +1,4 @@
-\subsection{Miller_Rabin}
+\subsection{Miller Rabin}
 	\begin{verbatim}
 /*   Miller Rabin b  */
 
