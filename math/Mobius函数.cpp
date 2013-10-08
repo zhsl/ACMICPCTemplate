@@ -1,3 +1,6 @@
+\subsection{Mobius函数}
+	\begin{verbatim}
+
 /*     Mobius函数   O(n)
 Mobius反演定理
 　已知 f(n) = sigma(d|n, g(d))
@@ -31,3 +34,4 @@ void Mobius(int n)
         }
     }
 }
+          \end{verbatim}
