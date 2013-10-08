@@ -1,3 +1,5 @@
+\subsection{Lucas   }
+    \begin{verbatim}
 /* Lucas定理求 C(n，m)%p
  Lucas(n,m,p)=C(n%p,m%p)* Lucas(n/p,m/p,p)
  Lucas(n,0,p)=1;      */
@@ -34,3 +36,4 @@ LL lucas(LL n,LL m,LL p)
 {
     return  m?(C(n%p,m%p,p)*lucas(n/p,m/p,p))%p:1;
 }
+	\end{verbatim}
