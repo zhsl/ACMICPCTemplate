@@ -1,3 +1,5 @@
+\subsection{数学基础}
+	\begin{verbatim}
 /*  number theory basic
   -gcd
   -external gcd
@@ -143,3 +145,4 @@ void phitable(int n)
         }
     }
 }
+	\end{verbatim}
