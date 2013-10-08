@@ -1,3 +1,5 @@
+\subsection{快速傅里叶}
+    \begin{verbatim}
 /*  FFT    O(n*logn)   
  多项式转化为点值表示法,利用n次单位复根来分治运算
  例如做大数乘法：
@@ -115,3 +117,4 @@ int main(){
     }
     return 0;
 }
+	\end{verbatim}
