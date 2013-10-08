@@ -1,18 +1,22 @@
 \documentclass[12pt,oneside,a4paper]{article}
-\usepackage{CJKutf8}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}
+%\setmainfont[BoldFont=DejaVu Sans]{DejaVu Serif} % 设置默认的英文字体
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{xcolor}
 \usepackage{type1cm}
 \usepackage{booktabs}
 \usepackage{geometry}
+\usepackage{verbatim}
 %\usepackage[landscape]{geometry}
 \geometry{left=3cm,right=1cm,top=1.5cm,bottom=2cm,headsep=0.2cm}
-\usepackage{courier}
+%\usepackage{courier}
 %\usepackage{time}
 %\usepackage{charter}
 \usepackage{fancyhdr}
-
+\usepackage{minted} %-shell-escape
+	\iffalse
 \usepackage{listings}
 \lstset{%numbers=left, %设置行号位置
         numberstyle=\tiny, %设置行号大小
@@ -27,6 +31,7 @@
         showspaces=false %不显示空格
         basicstyle=\ttfamily %等宽字体
 }
+	\fi
 
 \usepackage[dvipdfmx,
 	 	   CJKbookmarks=true,
@@ -36,8 +41,7 @@
 	 	   citecolor=black]{hyperref}
 \AtBeginDvi{\special{pdf:tounicode UTF8-UCS2}}
 
-\begin{document}
-\begin{CJK}{UTF8}{gbsn}
+\begin{document}\footnotesize
     \pagestyle{fancy}
     \lhead{}
     \chead{}
@@ -91,5 +95,4 @@
     \input DP.tex
     \clearpage	
 
-\end{CJK}
-\end{document} 
+\end{document} \footnotesize
