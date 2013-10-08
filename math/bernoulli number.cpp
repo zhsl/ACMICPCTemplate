@@ -1,3 +1,5 @@
+\subsection{Bernoulli number}
+	\begin{verbatim}
 /*   bernoulli方程
      Sn(m)=1^n+2^n+...+(m-1)^n
   => Sn(m)=1/(m+1)(0~m)ΣC(m+1,k)Bk(m^(n+1-k))
@@ -44,3 +46,4 @@ void bernoulli(int n)    //得到B数组
         else B[m][0]=0,B[m][1]=1;
     }
 }
+	\end{verbatim}
