@@ -1,3 +1,5 @@
+\subsection{Miller_Rabin}
+	\begin{verbatim}
 /*   Miller Rabin b  */
 
 /* （吉大模板)，poj验证超时，谨慎使用。
@@ -103,3 +105,4 @@ bool Miller_Rabin(LL n)
     }
     return true;
 }
+	\end{verbatim}
