@@ -1,3 +1,5 @@
+\subsection{矩阵乘法}
+	\begin{verbatim}
 /*  Matrix multiplication  
   size为矩阵大小
   A为初始矩阵   */
@@ -32,3 +34,4 @@ Matrix mutilpow(LL k)
     }
     return ret;
 }
+	\end{verbatim}
