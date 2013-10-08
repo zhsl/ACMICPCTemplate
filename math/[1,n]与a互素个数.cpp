@@ -1,3 +1,5 @@
+\subsection{[1,n]与a互素个数}
+	\begin{verbatim}
 /*   [1,n]与a互素个数   O(sqrt n)
   先对a分解质因数
   然后用容斥原理             */
@@ -24,3 +26,4 @@ int solve (int n, int a){
     }
     return n-sum;
 }
+	\end{verbatim}
