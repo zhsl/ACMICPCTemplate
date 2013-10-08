@@ -1,3 +1,5 @@
+\subsection{高斯消元}
+	\begin{verbatim}
 /*   gauss_elimination  O(n^3)
    return 1,有解，return 0,无解。。
    n个方程n个变元
@@ -250,3 +252,4 @@ int gauss(int n)
     }
     return ret;    //返回最小的变换个数
 }
+	\end{verbatim}
