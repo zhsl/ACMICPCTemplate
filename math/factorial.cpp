@@ -1,3 +1,5 @@
+\subsection{factorial相关}
+	\begin{verbatim}
 /*   factorial相关
   -求n!某个因子k的个数  n!=(k^m)*(m!)*a
   推导：
@@ -12,3 +14,4 @@ LL ncount(LL n,LL k){
 		cou+=n/=k;
 	return cou;
 }
+	\end{verbatim}
