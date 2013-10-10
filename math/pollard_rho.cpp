@@ -1,10 +1,26 @@
 \subsection{pollard rho质因数分解}
 	\begin{verbatim}
 /*   pollard rho    o(n^(1/4))
+  mult_mod(LL a,LL b,LL c)-计算 (a*b)%c.   a,b都是long long的数，直接相乘可能溢出的
   pollard_rho 算法进行质因数分解  */
   
 LL factor[100];   //质因数分解结果（刚返回时是无序的）
 int tol;   //质因数的个数。数组小标从0开始
+
+LL mult_mod(LL a,LL b,LL c)
+{
+    a%=c;
+    b%=c;
+    LL ret=0;
+    while(b)
+    {
+        if(b&1){ret+=a;ret%=c;}
+        a<<=1;
+        if(a>=c)a%=c;
+        b>>=1;
+    }
+    return ret;
+}
 
 LL gcd(LL a,LL b)
 {
