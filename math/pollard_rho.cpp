@@ -1,6 +1,6 @@
 \subsection{pollard rho质因数分解}
 	\begin{verbatim}
-/*   pollard rho    
+/*   pollard rho    o(n^(1/4))
   pollard_rho 算法进行质因数分解  */
   
 LL factor[100];   //质因数分解结果（刚返回时是无序的）
