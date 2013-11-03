@@ -6,7 +6,7 @@
  
 /*   小区间(百万级),移位筛素数法,O(R-L)   */
 
-const int maxn = 100000;
+const int maxn = 1000010;
 int PrimeList[maxn];
 int PrimeNum;
 bool IsNotPrime[maxn]; // IsNotPrime[i] = 1表示i + L这个数是素数.
