@@ -34,7 +34,7 @@ typedef unsigned __int64 ULL;
 //const
 const int N=1010;
 const int INF=0x3f3f3f3f;
-const int MOD=100000,STA=8000010;
+const int MOD=1e+7,STA=8000010;
 const LL LNF=1LL<<60;
 const double EPS=1e-8;
 const double OO=1e15;
